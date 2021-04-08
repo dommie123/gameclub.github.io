@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import {Route, Router, Redirect, BrowserRouter} from 'react-router-dom';
 import Header from './components/header';
+import AboutMe from './components/about-us';
 
 function App() {
   return (
@@ -16,6 +17,10 @@ function App() {
         </Route>
         <Route path="/home">
 
+        </Route>
+        <Route path="/about-us">
+          <Header title="About Us" />
+          <AboutMe />
         </Route>
         <Route path="/logout">
 
