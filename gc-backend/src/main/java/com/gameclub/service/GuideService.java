@@ -21,11 +21,13 @@ public class GuideService {
 		return g;
 	}
 	
+	// GuideNotFoundException
 	public Guide getGuideById(int id) {
 		Guide g = gDao.getGuideById(id);
 		return g;
 	}
 	
+	// GuideNotFoundException
 	public Guide getGuideByTitle(String title) {
 		Guide g = gDao.getGuideByTitle(title);
 		return g;
@@ -36,10 +38,12 @@ public class GuideService {
 		return guides;
 	}
 	
+	// GuideNotFoundException
 	public void removeGuide(int id) {
 		gDao.deleteById(id);
 	}
 	
+	// UserDoesNotException
 	public List<Guide> getGuidesByUser(int userId) {
 		// TODO implement this method in the DAO layer
 		return null;

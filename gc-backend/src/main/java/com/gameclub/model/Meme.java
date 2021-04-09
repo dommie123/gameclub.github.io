@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -30,6 +31,9 @@ public class Meme {
 	private String title;
 	
 	private byte[] byteStream;
+	
+	@ManyToOne
+	private User author;
 	
 	public Meme(String title, byte[] byteStream) {
 		this.title = title;
