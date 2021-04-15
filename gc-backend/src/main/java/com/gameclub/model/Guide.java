@@ -35,8 +35,9 @@ public class Guide {
 	@ManyToOne
 	private User author;
 	
-	public Guide(String title, String description) {
+	public Guide(String title, String description, User author) {
 		this.title = title;
 		this.description = description;
+		this.author = author;
 	}
 }

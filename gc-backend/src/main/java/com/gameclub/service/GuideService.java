@@ -6,7 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.gameclub.dao.GuideDao;
+import com.gameclub.dao.UserDao;
 import com.gameclub.model.Guide;
+import com.gameclub.model.User;
 
 import lombok.AllArgsConstructor;
 
@@ -14,6 +16,7 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor(onConstructor=@__(@Autowired))
 public class GuideService {
 	
+	private UserDao uDao;
 	private GuideDao gDao;
 	
 	public Guide createGuide(Guide guide) {
@@ -45,8 +48,9 @@ public class GuideService {
 	
 	// UserDoesNotException
 	public List<Guide> getGuidesByUser(int userId) {
-		// TODO implement this method in the DAO layer
-		return null;
+		User u = uDao.getUserById(userId);
+		List<Guide> guides = gDao.getGuidesByAuthor(u);
+		return guides;
 	}
 
 }

@@ -6,7 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.gameclub.dao.MemeDao;
+import com.gameclub.dao.UserDao;
 import com.gameclub.model.Meme;
+import com.gameclub.model.User;
 
 import lombok.AllArgsConstructor;
 
@@ -15,6 +17,7 @@ import lombok.AllArgsConstructor;
 public class MemeService {
 	
 	private MemeDao mDao;
+	private UserDao uDao;
 	
 	public Meme createMeme(Meme meme) {
 		Meme m = mDao.save(meme);
@@ -41,8 +44,9 @@ public class MemeService {
 	}
 	
 	public List<Meme> getMemesByUser(int userId) {
-		// TODO implement this method in the DAO layer
-		return null;
+		User u = uDao.getUserById(userId);
+		List<Meme> memes = mDao.getMemesByAuthor(u);
+		return memes;
 	}
 
 }

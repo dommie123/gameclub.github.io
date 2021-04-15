@@ -35,9 +35,10 @@ public class Meme {
 	@ManyToOne
 	private User author;
 	
-	public Meme(String title, byte[] byteStream) {
+	public Meme(String title, byte[] byteStream, User author) {
 		this.title = title;
 		this.byteStream = byteStream;
+		this.author = author;
 	}
 
 }
