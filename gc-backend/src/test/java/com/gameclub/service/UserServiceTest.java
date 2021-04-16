@@ -24,7 +24,6 @@ import com.gameclub.model.User;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes= {GcBackendApplication.class})
-
 class UserServiceTest {
 	
 	@MockBean
@@ -78,8 +77,22 @@ class UserServiceTest {
 	}
 
 	@Test
-	void test() {
+	void testAddUser() {
 		fail("Not yet implemented");
 	}
 
+	@Test
+	void testGetUserById() {
+		fail("Not yet implemented");
+	}
+	
+	@Test
+	void testGetUserByUsername() {
+		fail("Not yet implemented");
+	}
+	
+	@Test
+	void testGetAllUsers() {
+		fail("Not yet implemented");
+	}
 }

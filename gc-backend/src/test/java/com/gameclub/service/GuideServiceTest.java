@@ -23,7 +23,6 @@ import com.gameclub.model.User;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes= {GcBackendApplication.class})
-
 class GuideServiceTest {
 
 	@MockBean
@@ -34,8 +33,9 @@ class GuideServiceTest {
 	
 	@BeforeEach
 	void setUpBeforeClass() throws Exception {
-		User u1 = new User("testuser", "testFirst", "testLast", "test@example.com");
+		User u1 = new User(1, "testuser", "testFirst", "testLast", "test@example.com", new ArrayList<>(), new ArrayList<>());
 		Guide g1 = new Guide(1, "testTitle", "This is a desription", u1);
+		Guide guide1 = new Guide(2, "testGuide2", "This is yet another description", new User(1, "testUser", "testFirst", "testLast", "test@example.com", new ArrayList<>(), new ArrayList<>()));
 		List<Guide> guides = new ArrayList<>();
 		guides.add(g1);
 		u1.setGuides(guides);
@@ -43,7 +43,7 @@ class GuideServiceTest {
 		when(gDao.save(ArgumentMatchers.any(Guide.class))).then(invocation -> {
 			Guide g = invocation.getArgument(0);
 			
-			return (g.getId() == 1) ? g1 : null;
+			return (g.getId() == 2) ? guide1 : null;
 				
 		});
 		
@@ -81,27 +81,33 @@ class GuideServiceTest {
 
 	@Test
 	void testAddGuide() {
-		fail("Not yet implemented");
+		Guide guide1 = new Guide(2, "testGuide2", "This is yet another description", new User(1, "testUser", "testFirst", "testLast", "test@example.com", new ArrayList<>(), new ArrayList<>()));
+		Guide g = gServ.createGuide(guide1);
+		assertEquals(2, g.getId());
 	}
 	
 	@Test
 	void testGuideGuideById() {
-		fail("Not yet implemented");
+		Guide g = gServ.getGuideById(1);
+		assertEquals("testTitle", g.getTitle());
 	}
 	
 	@Test
 	void testGetGuideByTitle() {
-		fail("Not yet implemented");
+		Guide g = gServ.getGuideByTitle("testTitle");
+		assertEquals(1, g.getId());
 	}
 	
 	@Test
 	void testGetGuidesByAuthor() {
-		fail("Not yet implemented");
+		List<Guide> userGuides = gServ.getGuidesByUser(1);
+		assertEquals(1, userGuides.size());
 	}
 	
 	@Test
 	void testGetAllGuides() {
-		fail("Not yet implemented");
+		List<Guide> guides = gServ.getAllGuides();
+		assertEquals(2, guides.size());
 	}
 
 }

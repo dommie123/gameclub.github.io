@@ -38,10 +38,10 @@ public class User {
 	
 	private String email;
 	
-	@OneToMany(mappedBy="users", cascade=CascadeType.ALL, fetch=FetchType.LAZY)
+	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY)
 	private List<Meme> memes;
 	
-	@OneToMany(mappedBy="users", cascade=CascadeType.ALL, fetch=FetchType.LAZY)
+	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY)
 	private List<Guide> guides;
 	
 	public User(String username, String firstName, String lastName, String email) {
