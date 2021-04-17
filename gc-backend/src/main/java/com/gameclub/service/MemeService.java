@@ -43,7 +43,7 @@ public class MemeService {
 		mDao.deleteById(id);
 	}
 	
-	public List<Meme> getMemesByUser(int userId) {
+	public List<Meme> getMemesByAuthor(int userId) {
 		User u = uDao.getUserById(userId);
 		List<Meme> memes = mDao.getMemesByAuthor(u);
 		return memes;

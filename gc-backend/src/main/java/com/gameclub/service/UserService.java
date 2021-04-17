@@ -21,6 +21,11 @@ public class UserService {
 		return u;
 	}
 	
+	public User getUserById(int id) {
+		User u = uDao.getUserById(id);
+		return u;
+	}
+	
 	public User getUserByUsername(String username) {
 		User u = uDao.getUserByUsername(username);
 		return u;

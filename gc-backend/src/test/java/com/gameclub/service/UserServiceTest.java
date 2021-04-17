@@ -37,12 +37,14 @@ class UserServiceTest {
 		List<Meme> mList = new ArrayList<>();
 		List<Guide> gList = new ArrayList<>();
 		User tim = new User(1, "The Big Bad Boss", "Tim", "Martin", "tim@example.com", mList, gList);
+		User dom = new User(2, "#1 Hero", "Dominick", "Wiley", "dom@example.com", mList, gList);
+
 		
 		when(uDao.save(ArgumentMatchers.any(User.class))).then(invocation -> {
 			User t = invocation.getArgument(0);
 			
-			if (t.getId() == 1)
-				return tim;
+			if (t.getId() == 2)
+				return dom;
 			else
 				return null;
 		});
@@ -68,31 +70,35 @@ class UserServiceTest {
 		when(uDao.findAll()).then(invocation -> {
 			List<User> users = new ArrayList<>();
 			users.add(tim);
+			users.add(dom);
 			return users;
 		});
 	}
 
-	@AfterEach
-	void tearDownAfterClass() throws Exception {
-	}
-
 	@Test
 	void testAddUser() {
-		fail("Not yet implemented");
+		List<Meme> mList = new ArrayList<>();
+		List<Guide> gList = new ArrayList<>();
+		User dom = new User(2, "#1 Hero", "Dominick", "Wiley", "dom@example.com", mList, gList);
+		User d = uServ.registerUser(dom);
+		assertEquals(2, d.getId());
 	}
 
 	@Test
 	void testGetUserById() {
-		fail("Not yet implemented");
+		User u = uServ.getUserById(1);
+		assertEquals("The Big Bad Boss", u.getUsername());
 	}
 	
 	@Test
 	void testGetUserByUsername() {
-		fail("Not yet implemented");
+		User u = uServ.getUserByUsername("The Big Bad Boss");
+		assertEquals(1, u.getId());
 	}
 	
 	@Test
 	void testGetAllUsers() {
-		fail("Not yet implemented");
+		List<User> users = uServ.getAllUsers();
+		assertEquals(2, users.size());
 	}
 }
