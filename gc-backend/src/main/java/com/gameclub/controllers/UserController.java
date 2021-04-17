@@ -13,7 +13,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.server.ResponseStatusException;
 
+import com.gameclub.exceptions.UserAlreadyExistsException;
+import com.gameclub.exceptions.UserNotFoundException;
 import com.gameclub.model.User;
 import com.gameclub.model.User;
 import com.gameclub.service.MemeService;
@@ -33,20 +36,32 @@ public class UserController {
 	
 	@PostMapping(value="/")
 	public ResponseEntity<User> registerUser(@RequestBody User u) {
-		uServ.registerUser(u);
+		try {
+			uServ.registerUser(u);
+		} catch (UserAlreadyExistsException e) {
+			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, e.getMessage(), e);
+		}
 		return new ResponseEntity<>(u, HttpStatus.CREATED);
 	}
 	
 	@GetMapping(value="/id/{userId}")
 	public User getUserById(@PathVariable("userId") int id) {
-		User m = uServ.getUserById(id);
-		return m;
+		try {
+			User m = uServ.getUserById(id);
+			return m;
+		} catch (UserNotFoundException e) {
+			throw new ResponseStatusException(HttpStatus.NOT_FOUND, e.getMessage(), e);
+		}
 	}
 	
 	@GetMapping(value="/username/{username}")
 	public User getUserByUsername(@PathVariable("username") String username) {
-		User u = uServ.getUserByUsername(username);
-		return u;
+		try {
+			User u = uServ.getUserByUsername(username);
+			return u;
+		} catch (UserNotFoundException e) {
+			throw new ResponseStatusException(HttpStatus.NOT_FOUND, e.getMessage(), e);
+		}
 	}
 	
 	@GetMapping(value="/all")
@@ -57,7 +72,11 @@ public class UserController {
 	
 	@DeleteMapping(value="/id/{userId}")
 	public ResponseEntity<String> removeUser(@PathVariable("userId") int id) {
-		uServ.removeUser(id);
+		try {
+			uServ.removeUser(id);
+		} catch (UserNotFoundException e) {
+			throw new ResponseStatusException(HttpStatus.NOT_FOUND, e.getMessage(), e);
+		}
 		return new ResponseEntity<>("User removed.", HttpStatus.GONE);
 	}
 }

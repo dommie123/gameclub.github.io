@@ -19,6 +19,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import com.gameclub.GcBackendApplication;
 import com.gameclub.dao.MemeDao;
+import com.gameclub.exceptions.MemeNotFoundException;
 import com.gameclub.model.Meme;
 import com.gameclub.model.User;
 
@@ -85,13 +86,13 @@ class MemeServiceTest {
 	}
 	
 	@Test
-	void testGetMemeById() {
+	void testGetMemeById() throws MemeNotFoundException {
 		Meme m = mServ.getMemeById(1);
 		assertEquals("Doge Variable", m.getTitle());	
 	}
 	
 	@Test
-	void testGetMemeByTitle() {
+	void testGetMemeByTitle() throws MemeNotFoundException {
 		Meme m = mServ.getMemeByTitle("Doge Variable");
 		assertEquals(1, m.getId());	
 	}

@@ -18,6 +18,8 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import com.gameclub.GcBackendApplication;
 import com.gameclub.dao.UserDao;
+import com.gameclub.exceptions.UserAlreadyExistsException;
+import com.gameclub.exceptions.UserNotFoundException;
 import com.gameclub.model.Guide;
 import com.gameclub.model.Meme;
 import com.gameclub.model.User;
@@ -76,7 +78,7 @@ class UserServiceTest {
 	}
 
 	@Test
-	void testAddUser() {
+	void testAddUser() throws UserAlreadyExistsException {
 		List<Meme> mList = new ArrayList<>();
 		List<Guide> gList = new ArrayList<>();
 		User dom = new User(2, "#1 Hero", "Dominick", "Wiley", "dom@example.com", mList, gList);
@@ -85,13 +87,13 @@ class UserServiceTest {
 	}
 
 	@Test
-	void testGetUserById() {
+	void testGetUserById() throws UserNotFoundException {
 		User u = uServ.getUserById(1);
 		assertEquals("The Big Bad Boss", u.getUsername());
 	}
 	
 	@Test
-	void testGetUserByUsername() {
+	void testGetUserByUsername() throws UserNotFoundException {
 		User u = uServ.getUserByUsername("The Big Bad Boss");
 		assertEquals(1, u.getId());
 	}

@@ -13,10 +13,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.server.ResponseStatusException;
 
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
+import com.gameclub.exceptions.GuideNotFoundException;
+import com.gameclub.exceptions.UserNotFoundException;
 import com.gameclub.model.Guide;
 import com.gameclub.service.GuideService;
 
@@ -37,20 +40,32 @@ public class GuideController {
 	
 	@GetMapping(value="/id/{guideId}")
 	public Guide getGuideById(@PathVariable("guideId") int id) {
-		Guide g = gServ.getGuideById(id);
-		return g;
+		try {
+			Guide g = gServ.getGuideById(id);
+			return g;
+		} catch (GuideNotFoundException e) {
+			throw new ResponseStatusException(HttpStatus.NOT_FOUND, e.getMessage(), e);
+		}
 	}
 	
 	@GetMapping(value="/title/{guideTitle}")
 	public Guide getGuideByTitle(@PathVariable("guideTitle") String title) {
-		Guide g = gServ.getGuideByTitle(title);
-		return g;
+		try {
+			Guide g = gServ.getGuideByTitle(title);
+			return g;
+		} catch (GuideNotFoundException e) {
+			throw new ResponseStatusException(HttpStatus.NOT_FOUND, e.getMessage(), e);
+		}
 	}
 	
 	@GetMapping(value="/author/{authorId}")
 	public List<Guide> getGuideByAuthor(@PathVariable("authorId") int id) {
-		List<Guide> guides = gServ.getGuidesByUser(id);
-		return guides;
+		try {
+			List<Guide> guides = gServ.getGuidesByUser(id);
+			return guides;
+		} catch (UserNotFoundException e) {
+			throw new ResponseStatusException(HttpStatus.NOT_FOUND, e.getMessage(), e);
+		}
 	}
 	
 	@GetMapping(value="/all")

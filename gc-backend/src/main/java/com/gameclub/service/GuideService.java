@@ -7,6 +7,8 @@ import org.springframework.stereotype.Service;
 
 import com.gameclub.dao.GuideDao;
 import com.gameclub.dao.UserDao;
+import com.gameclub.exceptions.GuideNotFoundException;
+import com.gameclub.exceptions.UserNotFoundException;
 import com.gameclub.model.Guide;
 import com.gameclub.model.User;
 
@@ -24,15 +26,17 @@ public class GuideService {
 		return g;
 	}
 	
-	// GuideNotFoundException
-	public Guide getGuideById(int id) {
+	public Guide getGuideById(int id) throws GuideNotFoundException {
 		Guide g = gDao.getGuideById(id);
+		if (g == null)
+			throw new GuideNotFoundException();
 		return g;
 	}
 	
-	// GuideNotFoundException
-	public Guide getGuideByTitle(String title) {
+	public Guide getGuideByTitle(String title) throws GuideNotFoundException {
 		Guide g = gDao.getGuideByTitle(title);
+		if (g == null)
+			throw new GuideNotFoundException();
 		return g;
 	}
 	
@@ -41,13 +45,13 @@ public class GuideService {
 		return guides;
 	}
 	
-	// GuideNotFoundException
 	public void removeGuide(int id) {
 		gDao.deleteById(id);
 	}
 	
-	// UserDoesNotException
-	public List<Guide> getGuidesByUser(int userId) {
+	public List<Guide> getGuidesByUser(int userId) throws UserNotFoundException {
+		if (!uDao.existsById(userId))
+			throw new UserNotFoundException();
 		User u = uDao.getUserById(userId);
 		List<Guide> guides = gDao.getGuidesByAuthor(u);
 		return guides;

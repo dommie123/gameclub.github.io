@@ -18,6 +18,8 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import com.gameclub.GcBackendApplication;
 import com.gameclub.dao.GuideDao;
+import com.gameclub.exceptions.GuideNotFoundException;
+import com.gameclub.exceptions.UserNotFoundException;
 import com.gameclub.model.Guide;
 import com.gameclub.model.User;
 
@@ -87,19 +89,19 @@ class GuideServiceTest {
 	}
 	
 	@Test
-	void testGuideGuideById() {
+	void testGuideGuideById() throws GuideNotFoundException {
 		Guide g = gServ.getGuideById(1);
 		assertEquals("testTitle", g.getTitle());
 	}
 	
 	@Test
-	void testGetGuideByTitle() {
+	void testGetGuideByTitle() throws GuideNotFoundException {
 		Guide g = gServ.getGuideByTitle("testTitle");
 		assertEquals(1, g.getId());
 	}
 	
 	@Test
-	void testGetGuidesByAuthor() {
+	void testGetGuidesByAuthor() throws UserNotFoundException {
 		List<Guide> userGuides = gServ.getGuidesByUser(1);
 		assertEquals(1, userGuides.size());
 	}

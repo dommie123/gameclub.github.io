@@ -13,7 +13,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.server.ResponseStatusException;
 
+import com.gameclub.exceptions.MemeNotFoundException;
+import com.gameclub.exceptions.UserNotFoundException;
 import com.gameclub.model.Meme;
 import com.gameclub.service.MemeService;
 
@@ -37,20 +40,32 @@ public class MemeController {
 	
 	@GetMapping(value="/id/{memeId}")
 	public Meme getMemeById(@PathVariable("memeId") int id) {
-		Meme m = mServ.getMemeById(id);
-		return m;
+		try {
+			Meme m = mServ.getMemeById(id);
+			return m;
+		} catch (MemeNotFoundException e) {
+			throw new ResponseStatusException(HttpStatus.NOT_FOUND, e.getMessage(), e);
+		}
 	}
 	
 	@GetMapping(value="/title/{memeTitle}")
 	public Meme getMemeByTitle(@PathVariable("memeTitle") String title) {
-		Meme m = mServ.getMemeByTitle(title);
-		return m;
+		try {
+			Meme m = mServ.getMemeByTitle(title);
+			return m;
+		} catch (MemeNotFoundException e) {
+			throw new ResponseStatusException(HttpStatus.NOT_FOUND, e.getMessage(), e);
+		}
 	}
 	
 	@GetMapping(value="/author/{authorId}")
 	public List<Meme> getMemeByAuthor(@PathVariable("authorId") int id) {
-		List<Meme> dankMemes = mServ.getMemesByAuthor(id);
-		return dankMemes;
+		try {
+			List<Meme> dankMemes = mServ.getMemesByAuthor(id);
+			return dankMemes;
+		} catch (UserNotFoundException e) {
+			throw new ResponseStatusException(HttpStatus.NOT_FOUND, e.getMessage(), e);
+		}
 	}
 	
 	@GetMapping(value="/all")
@@ -61,7 +76,11 @@ public class MemeController {
 	
 	@DeleteMapping(value="/id/{memeId}")
 	public ResponseEntity<String> yeetMeme(@PathVariable("memeId") int id) {
-		mServ.removeMeme(id);
+		try {
+			mServ.removeMeme(id);
+		} catch (MemeNotFoundException e) {
+			throw new ResponseStatusException(HttpStatus.NOT_FOUND, e.getMessage(), e);
+		}
 		return new ResponseEntity<>("Meme has been yeeted.", HttpStatus.GONE);
 	}
 }
