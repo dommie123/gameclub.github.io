@@ -16,12 +16,12 @@ export default function Header(props) {
     else {
         return (
             <div className="container-lg">
-                <header className="header">
-                    <h1>{title}</h1>
-                </header>
                 <nav className="nav">
                     {/* TOOD add links to custom components */}
                 </nav>
+                <header className="header">
+                    <h1>{title}</h1>
+                </header>
             </div>
         )
     }

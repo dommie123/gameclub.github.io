@@ -1,10 +1,34 @@
-import {GET_ALL_GUIDES, GET_GUIDE, NEW_GUIDE} from './types';
+import {GET_ALL_GUIDES, GET_GUIDE_BY_ID, GET_GUIDE_BY_TITLE, GET_GUIDES_BY_AUTHOR, NEW_GUIDE} from './types';
 import {GameClubDB} from './axios-endpoints';
 
 export const getGuides = () => {
     return function(dispatch) {
-        let guides = GameClubDB.get("").then(data => dispatch({
+        let guides = GameClubDB.get("/guide/all").then(data => dispatch({
             type: GET_ALL_GUIDES,
+            payload: data
+        })).catch(console.log("An error occurred! Panic!"));
+
+        console.log(guides);
+        return guides.data;
+    }
+}
+
+export const getGuideById = (id) => {
+    return function(dispatch) {
+        let guides = GameClubDB.get(`/guide/id/${id}`).then(data => dispatch({
+            type: GET_GUIDE_BY_ID,
+            payload: data
+        })).catch(console.log("An error occurred! Panic!"));
+
+        console.log(guides);
+        return guides.data;
+    }
+}
+
+export const getGuidesByAuthor = (authId) => {
+    return function(dispatch) {
+        let guides = GameClubDB.get(`/guide/author/${authId}`).then(data => dispatch({
+            type: GET_GUIDES_BY_AUTHOR,
             payload: data
         })).catch(console.log("An error occurred! Panic!"));
 
@@ -15,8 +39,8 @@ export const getGuides = () => {
 
 export const getGuide = (name) => {
     return function(dispatch) {
-        let guide = GameClubDB.get("").then(data => dispatch({
-            type: GET_GUIDE,
+        let guide = GameClubDB.get(`guide/title/${name}`).then(data => dispatch({
+            type: GET_GUIDE_BY_TITLE,
             payload: data
         })).catch(console.log("Could not get the guide! Panic!"));
         
@@ -26,10 +50,10 @@ export const getGuide = (name) => {
 }
 
 export const newGuide = (guide) => {
-    let g = GameClubDB.post("", {
-        id: guide.id,
+    let g = GameClubDB.post("/guide", {
         title: guide.title,
-        description: guide.description
+        description: guide.description,
+        author: guide.author
     }).then(data => dispatch({
         type: NEW_GUIDE, 
         payload: data

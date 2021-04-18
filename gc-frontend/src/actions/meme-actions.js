@@ -1,9 +1,9 @@
-import {GET_DANK_MEME, GET_ALL_MEMES, NEW_DANK_MEME} from './types';
+import {GET_DANK_MEME_BY_TITLE, GET_DANK_MEME_BY_ID, GET_MEMEZ_BY_AUTHOR, YEET_MEME, GET_ALL_MEMES, NEW_DANK_MEME} from './types';
 import {GameClubDB} from './axios-endpoints';
 
 export const getAllMemes = () => {
     return function(dispatch) {
-        let dankMemes = GameClubDB.get("").then(data => dispatch({
+        let dankMemes = GameClubDB.get("/meme/all").then(data => dispatch({
             type: GET_ALL_MEMES,
             payload: data
         }))
@@ -12,10 +12,21 @@ export const getAllMemes = () => {
     }
 }
 
-export const getDankMeme = () => {
+export const getMemesByAuthor = (authId) => {
     return function(dispatch) {
-        let dankMeme = GameClubDB.get("").then(data => dispatch({
-            type: GET_DANK_MEME,
+        let dankMemes = GameClubDB.get(`/meme/author/${authId}`).then(data => dispatch({
+            type: GET_MEMEZ_BY_AUTHOR,
+            payload: data
+        }))
+        console.log(dankMemes);
+        return dankMemes.data;
+    }
+}
+
+export const getDankMeme = (title) => {
+    return function(dispatch) {
+        let dankMeme = GameClubDB.get(`/meme/title/${title}`).then(data => dispatch({
+            type: GET_DANK_MEME_BY_TITLE,
             payload: data
         }))
         console.log(dankMeme);
@@ -23,9 +34,20 @@ export const getDankMeme = () => {
     }
 }
 
-export const getAllMemes = (meme) => {
+export const getDankMemeById = (id) => {
     return function(dispatch) {
-        let newMeme = GameClubDB.post("", {
+        let dankMeme = GameClubDB.get(`/meme/id/${id}`).then(data => dispatch({
+            type: GET_DANK_MEME_BY_ID,
+            payload: data
+        }))
+        console.log(dankMeme);
+        return dankMeme.data;
+    }
+}
+
+export const newDankMeme = (meme) => {
+    return function(dispatch) {
+        let newMeme = GameClubDB.post("/meme", {
             title: meme.title,
             byteStream: meme.bytes
         }).then(data => dispatch({
@@ -34,5 +56,13 @@ export const getAllMemes = (meme) => {
         }))
         console.log(newMeme);
         return newMeme.data;
+    }
+}
+
+export const yeetMeme = (id) => {
+    return function(dispatch) {
+        return GameClubDB.delete(`/meme/id/${id}`).then(dispatch({
+            type: YEET_MEME
+        }))
     }
 }

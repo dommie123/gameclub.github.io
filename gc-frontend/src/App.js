@@ -9,8 +9,8 @@ function App() {
     <BrowserRouter>
       <div className="App">
         <Route path="/">
-          {/* <Redirect to="/login" /> */}
           <Header title="Everything works great so far!" />
+          <Footer />
         </Route>
         <Route path="/login">
 
