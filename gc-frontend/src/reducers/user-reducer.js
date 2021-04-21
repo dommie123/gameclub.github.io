@@ -1,6 +1,7 @@
-import {AUTH_LOGIN, AUTH_LOGOUT, REGISTER_ADMIN, REGISTER_USER} from '../actions/types';
+import {AUTH_LOGIN, GET_ALL_USERS, AUTH_LOGOUT, REGISTER_ADMIN, REGISTER_USER} from '../actions/types';
 
 const initialState = {
+    users: [],
     currentUser: null,
     isLoggedIn: false,
     isAdmin: false
@@ -30,6 +31,11 @@ export default function(state=initialState, action) {
             currentUser: action.newUser,
             isLoggedIn: false,
             isAdmin: true
+        }
+        case GET_ALL_USERS:
+        return {
+            ...state,
+            users: action.payload
         }
     }
 }
