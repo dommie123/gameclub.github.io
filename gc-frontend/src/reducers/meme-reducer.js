@@ -1,4 +1,4 @@
-import {GET_DANK_MEME_BY_TITLE, GET_DANK_MEME_BY_ID, GET_MEMEZ_BY_AUTHOR, YEET_MEME, NEW_DANK_MEME, GET_ALL_MEMES} from '../actions/types';
+import {GET_DANK_MEME_BY_TITLE, GET_DANK_MEME_BY_ID, GET_MEMEZ_BY_AUTHOR, YEET_MEME, NEW_DANK_MEME, GET_ALL_MEMEZ} from '../actions/types';
 
 const initialState = {
     memes: [],
@@ -22,7 +22,7 @@ export default function(state=initialState, action) {
             ...state,
             meme: action.payload
         }
-        case GET_ALL_MEMES:
+        case GET_ALL_MEMEZ:
         return {
             ...state,
             memes: action.payload

@@ -37,5 +37,7 @@ export default function(state=initialState, action) {
             ...state,
             users: action.payload
         }
+        default: 
+        return state;
     }
 }

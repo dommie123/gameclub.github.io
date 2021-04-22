@@ -32,5 +32,7 @@ export default function(state=initialState, action) {
             ...state,
             guide: action.payload
         }
+        default: 
+        return state;
     }
 }
