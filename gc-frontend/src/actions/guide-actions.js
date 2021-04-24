@@ -50,15 +50,17 @@ export const getGuide = (name) => {
 }
 
 export const newGuide = (guide) => {
-    let g = GameClubDB.post("/guide", {
-        title: guide.title,
-        description: guide.description,
-        author: guide.author
-    }).then(data => dispatch({
-        type: NEW_GUIDE, 
-        payload: data
-    })).catch(console.log("Error creating a new guide! Panic!"));
+    return function(dispatch) {
+        let g = GameClubDB.post("/guide", {
+            title: guide.title,
+            description: guide.description,
+            author: guide.author
+        }).then(data => dispatch({
+            type: NEW_GUIDE, 
+            payload: data
+        })).catch(console.log("Error creating a new guide! Panic!"));
 
-    console.log(g);
-    return g.data;
+        console.log(g);
+        return g.data;
+    }
 }

@@ -11,12 +11,13 @@ export default function GuideList(props) {
             )
         }
     }
+    console.log(jsxGuides);
 
     useEffect(() => {
         console.log(guideList);
     }, [guideList]);
     
     return (
-        {guideList}
+        {jsxGuides}
     )
 }

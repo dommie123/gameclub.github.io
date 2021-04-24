@@ -1,5 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
+import GuideList from './guide-list';
+import {getGuides} from '../actions/guide-actions';
 
 export default function GuideListContainer() {
     const [guides, setGuides] = useState([]);
@@ -14,6 +16,7 @@ export default function GuideListContainer() {
     }
 
     const renderList = () => {
+        console.log(guides);
         setGuideList(<GuideList guideList={guides} />)
     }
 
@@ -24,7 +27,9 @@ export default function GuideListContainer() {
 
     return (
         <div className="container">
-            {guideList}
+            <ul>
+                {guideList}
+            </ul>
         </div>
     )
 }

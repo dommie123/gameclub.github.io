@@ -1,4 +1,4 @@
-import {axios} from 'axios';
+import axios from 'axios';
 
 export const GameClubDB = axios.create({
     baseURL: "https://localhost:8080"
