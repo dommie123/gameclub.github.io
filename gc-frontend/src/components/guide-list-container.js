@@ -1,42 +1,37 @@
-import React, {useState, useEffect} from 'react';
+import React, {useEffect} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
-//import GuideList from './guide-list';
+import {Link} from 'react-router-dom';
 import {getGuides} from '../actions/guide-actions';
 
 export default function GuideListContainer() {
-    const [guides, setGuides] = useState(useSelector(state => state.guides.guides));
-    //const [guideList, setGuideList] = useState(<GuideList />);
-    const [user, setUser] = useState(useSelector(state => state.currentUser));
+    const guides = useSelector(state => state.guides.guides);
+    const user = useSelector(state => state.users.currentUser);
 
     const dispatch = useDispatch();
 
-    const getAllGuides = () => {
-        setGuides(dispatch(getGuides()));
-        console.log(guides);
-    }
-
-    // const renderList = () => {
-    //     console.log(guides);
-    //     setGuideList(<GuideList guideList={guides} />)
-    // }
-
     useEffect(() => {
-        getAllGuides();
-    }, [guides]);
+        dispatch(getGuides());
+    }, []);
 
     if (guides) {
         return (
             <div className="container">
                 <ul>
                     {guides.data ? guides.data.map((guide) => 
-                        <li key={guide.id}>{guide.title}<br></br>{guide.description}</li>) : <p>No guides can be found!</p>}
+                        <div className="container">
+                            <h5>{guide.title}</h5>
+                            <li key={guide.id}>{guide.title}{guide.description}</li>
+                        </div>
+                    ) : <p>No guides can be found!</p>}
                 </ul>
+                {(user) ? <Link to="/guides/add-guide">Add a meme</Link> : <></>}
             </div>
         )
     } else {
         return (
             <div className="container">
                 <p>No guides can be found!</p>
+                {(user) ? <Link to="/guides/add-guide">Add a meme</Link> : <></>}
             </div>
         )
     }

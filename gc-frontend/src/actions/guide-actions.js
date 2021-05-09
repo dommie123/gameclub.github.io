@@ -8,7 +8,7 @@ export const getGuides = () => {
             payload: data
         })).catch(console.log("An error occurred! Panic!"));
 
-        console.log(guides);
+        //console.log(guides);
         return guides.data;
     }
 }
@@ -20,7 +20,7 @@ export const getGuideById = (id) => {
             payload: data
         })).catch(console.log("An error occurred! Panic!"));
 
-        console.log(guides);
+        //console.log(guides);
         return guides.data;
     }
 }
@@ -32,7 +32,7 @@ export const getGuidesByAuthor = (authId) => {
             payload: data
         })).catch(console.log("An error occurred! Panic!"));
 
-        console.log(guides);
+        //console.log(guides);
         return guides.data;
     }
 }
@@ -44,7 +44,7 @@ export const getGuide = (name) => {
             payload: data
         })).catch(console.log("Could not get the guide! Panic!"));
         
-        console.log(guide);
+        //console.log(guide);
         return guide.data;
     }
 }
@@ -60,7 +60,7 @@ export const newGuide = (guide) => {
             payload: data
         })).catch(console.log("Error creating a new guide! Panic!"));
 
-        console.log(g);
+        //console.log(g);
         return g.data;
     }
 }

@@ -5,11 +5,11 @@ import {getAllMemes} from '../actions/axios-endpoints';
 export default function MemeGallery() {
     
     const [memes, setMemes] = useState([]);
-    const [user, setUser] = useState(useSelector(state => state.currentUser));
+    const user = useSelector(state => state.users.currentUser);
     const dispatch = useDispatch();
 
     useEffect(() => {
-
+        dispatch(getAllMemes());
     }, []);
 
     if (memes) {
