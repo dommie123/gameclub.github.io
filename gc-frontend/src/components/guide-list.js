@@ -6,6 +6,8 @@ export default function GuideList(props) {
     const jsxGuides = [];
     if (guideList) {
         if (guideList.data) {
+            console.log("Guide List", guideList);
+            console.log("JSX Guide List", jsxGuides);
             jsxGuides = guideList.data.map((item) => 
                 <li key={item.id}><h4>({item.id}) {item.title}</h4></li>
             )
@@ -18,6 +20,8 @@ export default function GuideList(props) {
     }, [guideList]);
     
     return (
-        {jsxGuides}
+        <ul>
+            {jsxGuides}
+        </ul>
     )
 }

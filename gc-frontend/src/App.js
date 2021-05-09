@@ -15,10 +15,9 @@ function App() {
       <BrowserRouter>
         <div className="App">
           <Route path="/">
-            
+            <Redirect to="/home" />
           </Route>
           <Route path="/login">
-
           </Route>
           <Route path="/home">
             <Header title="Game Club Official Website" />

@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export const GameClubDB = axios.create({
-    baseURL: "https://localhost:8080"
+    baseURL: "http://localhost:9027"
 });
 
 export const PokeAPI = axios.create({
