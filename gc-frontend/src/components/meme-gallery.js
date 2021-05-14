@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import {getAllMemes} from '../actions/axios-endpoints';
+import {getAllMemes} from '../actions/meme-actions';
 
 export default function MemeGallery() {
     

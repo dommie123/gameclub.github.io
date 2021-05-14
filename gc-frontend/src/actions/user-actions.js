@@ -1,5 +1,5 @@
 import {AUTH_LOGIN, AUTH_LOGOUT, GET_ALL_USERS, REGISTER_ADMIN, REGISTER_USER} from './types';
-import GameClubDB from './axios-endpoints';
+import {GameClubDB} from './axios-endpoints';
 
 export const registerUser = (u) => {
     return function(dispatch) {
@@ -43,9 +43,9 @@ export const logout = () => {
     }
 }
 
-export const login = (id) => {
+export const login = (username) => {
     return function(dispatch) {
-        let user = GameClubDB.get(`/id/${id}`).then(data => dispatch({
+        let user = GameClubDB.get(`/username/${username}`).then(data => dispatch({
             type: AUTH_LOGIN,
             currentUser: data
         }));

@@ -26,9 +26,6 @@ export default function AddGuide() {
         dispatch(newGuide({title:title, description:description, author:user}));
     }
 
-    useEffect(() => {
-    }, []);
-
     return (
         <form onSubmit={onSubmit}>
             <FormInput type="text" name="title" display="Title: " handleChange={onChange} />

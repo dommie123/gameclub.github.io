@@ -1,10 +1,10 @@
-import {GET_DANK_MEME_BY_TITLE, GET_DANK_MEME_BY_ID, GET_MEMEZ_BY_AUTHOR, YEET_MEME, GET_ALL_MEMES, NEW_DANK_MEME} from './types';
+import {GET_DANK_MEME_BY_TITLE, GET_DANK_MEME_BY_ID, GET_MEMEZ_BY_AUTHOR, YEET_MEME, GET_ALL_MEMEZ, NEW_DANK_MEME} from './types';
 import {GameClubDB} from './axios-endpoints';
 
 export const getAllMemes = () => {
     return function(dispatch) {
         let dankMemes = GameClubDB.get("/meme/all").then(data => dispatch({
-            type: GET_ALL_MEMES,
+            type: GET_ALL_MEMEZ,
             payload: data
         }))
         return dankMemes.data;

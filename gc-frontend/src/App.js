@@ -8,6 +8,9 @@ import AboutMe from './components/about-us';
 import Home from './components/home';
 import {store} from './store';
 import GuideListContainer from './components/guide-list-container';
+import LoginForm from './components/login-form';
+import RegisterForm from './components/register-form';
+import MemeGallery from './components/meme-gallery';
 
 function App() {
   return (
@@ -18,6 +21,12 @@ function App() {
             <Redirect to="/home" />
           </Route>
           <Route path="/login">
+            <Header title="Log in with us here!" navIsHidden={true} />
+            <LoginForm />
+          </Route>
+          <Route path="/register">
+            <Header title="Register with us here!" navIsHidden={true} />
+            <RegisterForm />
           </Route>
           <Route path="/home">
             <Header title="Game Club Official Website" />
@@ -26,6 +35,10 @@ function App() {
           <Route path="/guides">
             <Header title="Game Club Archives" />
             <GuideListContainer />
+          </Route>
+          <Route path="/memes">
+            <Header title="Meme Gallery" />
+            <MemeGallery />
           </Route>
           <Route path="/about-us">
             <Header title="About Us" />
