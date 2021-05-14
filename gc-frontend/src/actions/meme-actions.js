@@ -7,7 +7,6 @@ export const getAllMemes = () => {
             type: GET_ALL_MEMES,
             payload: data
         }))
-        //console.log(dankMemes);
         return dankMemes.data;
     }
 }
@@ -18,7 +17,6 @@ export const getMemesByAuthor = (authId) => {
             type: GET_MEMEZ_BY_AUTHOR,
             payload: data
         }))
-        //console.log(dankMemes);
         return dankMemes.data;
     }
 }
@@ -29,7 +27,6 @@ export const getDankMeme = (title) => {
             type: GET_DANK_MEME_BY_TITLE,
             payload: data
         }))
-        //console.log(dankMeme);
         return dankMeme.data;
     }
 }
@@ -40,7 +37,6 @@ export const getDankMemeById = (id) => {
             type: GET_DANK_MEME_BY_ID,
             payload: data
         }))
-        //console.log(dankMeme);
         return dankMeme.data;
     }
 }

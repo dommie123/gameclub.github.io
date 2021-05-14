@@ -15,14 +15,17 @@ export default function MemeGallery() {
     if (memes) {
         return (
             <div className="container-lg" id="meme-container">
-                {memes.map((meme) => 
-                <li key={meme.id}>{meme.title} {meme.byteStream}</li>)}
+                <ul>
+                    {memes.map((meme) => 
+                    <li key={meme.id}>{meme.title} {meme.byteStream}</li>)}
+                </ul>
             </div>
         )
     } else {
         return (
             <div className="container-lg" id="meme-container">
                 <b>Where'd all the memes go?!</b>
+                {user ? <button>Add a meme</button> : <></>}
             </div>
         )
     }
