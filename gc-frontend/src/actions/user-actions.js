@@ -3,7 +3,7 @@ import {GameClubDB} from './axios-endpoints';
 
 export const registerUser = (u) => {
     return function(dispatch) {
-        let user = GameClubDB.post("/", {
+        let user = GameClubDB.post("/user/", {
             id: u.id,
             username: u.username,
             firstName: u.firstName,
@@ -20,7 +20,7 @@ export const registerUser = (u) => {
 
 export const registerAdmin = (admin) => {
     return function(dispatch) {
-        let user = GameClubDB.post("/", {
+        let user = GameClubDB.post("/user/", {
             id: admin.id,
             username: admin.username,
             firstName: admin.firstName,
@@ -45,7 +45,7 @@ export const logout = () => {
 
 export const login = (username) => {
     return function(dispatch) {
-        let user = GameClubDB.get(`/username/${username}`).then(data => dispatch({
+        let user = GameClubDB.get(`/user/username/${username}`).then(data => dispatch({
             type: AUTH_LOGIN,
             currentUser: data
         }));
@@ -56,7 +56,7 @@ export const login = (username) => {
 
 export const getAllUsers = () => {
     return function(dispatch) {
-        let users = GameClubDB.get("/all").then(data => dispatch({
+        let users = GameClubDB.get("/user/all").then(data => dispatch({
             type: GET_ALL_USERS,
             payload: data
         }));

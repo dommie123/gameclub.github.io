@@ -39,6 +39,13 @@ public class UserService {
 		return u;
 	}
 	
+	public User getUserByCredentials(String username, String password) throws UserNotFoundException {
+		User u = uDao.getUserByUsernameAndPassword(username, password);
+		if (u == null)
+			throw new UserNotFoundException();
+		return u;
+	}
+	
 	public List<User> getAllUsers() {
 		List<User> users = uDao.findAll();
 		return users;

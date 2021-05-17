@@ -1,10 +1,12 @@
-import React, {useSelector} from 'react';
+import React from 'react';
+import {useSelector} from 'react-redux';
 import {Link} from 'react-router-dom';
 
 export default function Header(props) {
     let title = props.title;
     let navIsHidden = props.navIsHidden;
-    const user = {};
+    const user = useSelector(state => state.users.currentUser);
+    console.log(user);
 
     if (navIsHidden) {
         return (

@@ -1,5 +1,5 @@
-import React, {useState, useSelector} from 'react';
-import {useDispatch} from 'react-redux';
+import React, {useState} from 'react';
+import {useSelector, useDispatch} from 'react-redux';
 import {registerUser} from '../actions/user-actions';
 import FormInput from './form-input';
 import {Redirect} from "react-router-dom";
@@ -48,11 +48,10 @@ export default function RegisterForm() {
             <FormInput type="text" name="firstName" display="First Name: " handleChange={handleChange} />
             <FormInput type="text" name="lastName" display="Last Name: " handleChange={handleChange} />
             <FormInput type="text" name="email" display="Email: " handleChange={handleChange} />
-            <FormInput type="text" name="password" display="Password: " handleChange={handleChange} />
-            <FormInput type="text" name="confirmPass" display="Confirm your Password: " handleChange={handleChange} />
+            <FormInput type="password" name="password" display="Password: " handleChange={handleChange} />
+            <FormInput type="password" name="confirmPass" display="Confirm your Password: " handleChange={handleChange} />
             <FormInput type="checkbox" name="agree" display="I agree to the terms and conditions of this site (as mentioned in Discord): " handleChange={handleChange} />
             <FormInput type="submit" display="Register"/>
-
         </form>
     )
 }

@@ -32,6 +32,8 @@ public class User {
 	
 	private String username;
 	
+	private String password;
+	
 	private String firstName;
 	
 	private String lastName;
@@ -44,8 +46,9 @@ public class User {
 	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY)
 	private List<Guide> guides;
 	
-	public User(String username, String firstName, String lastName, String email) {
+	public User(String username, String password, String firstName, String lastName, String email) {
 		this.username = username;
+		this.password = password;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
