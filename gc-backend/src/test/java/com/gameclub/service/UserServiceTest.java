@@ -38,8 +38,8 @@ class UserServiceTest {
 	void setUpBeforeClass() throws Exception {
 		List<Meme> mList = new ArrayList<>();
 		List<Guide> gList = new ArrayList<>();
-		User tim = new User(1, "The Big Bad Boss", "Tim", "Martin", "tim@example.com", mList, gList);
-		User dom = new User(2, "#1 Hero", "Dominick", "Wiley", "dom@example.com", mList, gList);
+		User tim = new User(1, "The Big Bad Boss", "password", "Tim", "Martin", "tim@example.com", mList, gList);
+		User dom = new User(2, "#1 Hero", "password", "Dominick", "Wiley", "dom@example.com", mList, gList);
 
 		
 		when(uDao.save(ArgumentMatchers.any(User.class))).then(invocation -> {
@@ -81,7 +81,7 @@ class UserServiceTest {
 	void testAddUser() throws UserAlreadyExistsException {
 		List<Meme> mList = new ArrayList<>();
 		List<Guide> gList = new ArrayList<>();
-		User dom = new User(2, "#1 Hero", "Dominick", "Wiley", "dom@example.com", mList, gList);
+		User dom = new User(2, "#1 Hero", "password", "Dominick", "Wiley", "dom@example.com", mList, gList);
 		User d = uServ.registerUser(dom);
 		assertEquals(2, d.getId());
 	}

@@ -6,6 +6,7 @@ import {Redirect} from "react-router-dom";
 
 export default function RegisterForm() {
     const currentUser = useSelector(state => state.users.currentUser);
+    const isLoggedIn = useSelector(state => state.users.isLoggedIn);
     const [user, setUser] = useState({username:"", firstName:"", lastName:"", password:"", email:"", isAdmin:false});
     const [confirm, setConfirm] = useState("")
     const dispatch = useDispatch();
@@ -14,7 +15,7 @@ export default function RegisterForm() {
         e.preventDefault();
         if (confirm == user.password) {
             dispatch(registerUser(user));
-            if (currentUser.isLoggedIn) {
+            if (isLoggedIn) {
                 alert(`User ${user.username} has been succcessfully logged in!`);
                 <Redirect to="/home" />
             }
@@ -35,7 +36,7 @@ export default function RegisterForm() {
             break;
             case "email": setUser({username: user.username, firstName: user.firstName, lastName: user.lastName, password:user.password, email: e.target.value, isAdmin:user.isAdmin});
             break;
-            case "password": setUser({username: user.username, firstName: user.firstName, lastName: user.lastName, password: e.target.value, email: e.target.value, isAdmin:user.isAdmin});
+            case "password": setUser({username: user.username, firstName: user.firstName, lastName: user.lastName, password: e.target.value, email: user.email, isAdmin:user.isAdmin});
             break;
             case "confirmPass": setConfirm(e.target.value);
             break;

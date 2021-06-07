@@ -42,7 +42,7 @@ class MemeServiceTest {
 		
 		dankness.setId(1);
 		dankness.setTitle("Doge Variable");
-		dankness.setAuthor(new User(1, "#1 Hero", "Dominick", "Wiley", "dom@example.com", new ArrayList<>(), new ArrayList<>()));
+		dankness.setAuthor(new User(1, "#1 Hero", "password", "Dominick", "Wiley", "dom@example.com", new ArrayList<>(), new ArrayList<>()));
 		all_the_memes.add(dankness);
 		dankness.getAuthor().setMemes(all_the_memes);
 		such_dank.setId(2);

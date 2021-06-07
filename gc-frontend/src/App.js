@@ -11,6 +11,7 @@ import GuideListContainer from './components/guide-list-container';
 import LoginForm from './components/login-form';
 import RegisterForm from './components/register-form';
 import MemeGallery from './components/meme-gallery';
+import Logout from './components/logout'
 
 function App() {
   return (
@@ -45,7 +46,7 @@ function App() {
             <AboutMe />
           </Route>
           <Route path="/logout">
-
+            <Logout />
           </Route>
           <Footer />
         </div>

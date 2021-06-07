@@ -35,9 +35,9 @@ class GuideServiceTest {
 	
 	@BeforeEach
 	void setUpBeforeClass() throws Exception {
-		User u1 = new User(1, "testuser", "testFirst", "testLast", "test@example.com", new ArrayList<>(), new ArrayList<>());
+		User u1 = new User(1, "testuser", "testpass", "testFirst", "testLast", "test@example.com", new ArrayList<>(), new ArrayList<>());
 		Guide g1 = new Guide(1, "testTitle", "This is a desription", u1);
-		Guide guide1 = new Guide(2, "testGuide2", "This is yet another description", new User(1, "testUser", "testFirst", "testLast", "test@example.com", new ArrayList<>(), new ArrayList<>()));
+		Guide guide1 = new Guide(2, "testGuide2", "This is yet another description", new User(1, "testUser", "testpass", "testFirst", "testLast", "test@example.com", new ArrayList<>(), new ArrayList<>()));
 		List<Guide> guides = new ArrayList<>();
 		guides.add(g1);
 		u1.setGuides(guides);
@@ -83,7 +83,7 @@ class GuideServiceTest {
 
 	@Test
 	void testAddGuide() {
-		Guide guide1 = new Guide(2, "testGuide2", "This is yet another description", new User(1, "testUser", "testFirst", "testLast", "test@example.com", new ArrayList<>(), new ArrayList<>()));
+		Guide guide1 = new Guide(2, "testGuide2", "This is yet another description", new User(1, "testUser", "testPass", "testFirst", "testLast", "test@example.com", new ArrayList<>(), new ArrayList<>()));
 		Guide g = gServ.createGuide(guide1);
 		assertEquals(2, g.getId());
 	}
