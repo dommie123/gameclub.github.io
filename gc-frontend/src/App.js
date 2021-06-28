@@ -12,6 +12,8 @@ import LoginForm from './components/login-form';
 import RegisterForm from './components/register-form';
 import MemeGallery from './components/meme-gallery';
 import Logout from './components/logout'
+import AddMeme from './components/add-meme';
+import AddGuide from './components/add-guide';
 
 function App() {
   return (
@@ -40,6 +42,14 @@ function App() {
           <Route path="/memes">
             <Header title="Meme Gallery" />
             <MemeGallery />
+          </Route>
+          <Route path="/memes/add-meme">
+            <Header title="Post a dank meme here!" navIsHidden={true} />
+            <AddMeme />
+          </Route>
+          <Route path="/guides/add-guide">
+            <Header title="Got advice? Post it here!" navIsHidden={true} />
+            <AddGuide />
           </Route>
           <Route path="/about-us">
             <Header title="About Us" />

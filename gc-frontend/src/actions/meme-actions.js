@@ -45,6 +45,7 @@ export const newDankMeme = (meme) => {
     return function(dispatch) {
         let newMeme = GameClubDB.post("/meme", {
             title: meme.title,
+            author: meme.author,
             byteStream: meme.bytes
         }).then(data => dispatch({
             type: NEW_DANK_MEME,

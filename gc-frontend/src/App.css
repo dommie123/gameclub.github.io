@@ -40,3 +40,40 @@
 /*
 * TODO: styling for other components
 */
+
+.form {
+  border: 3px solid black;
+  border-radius: 5px;
+  text-align: center;
+  margin: auto 10%;
+}
+
+.form > input {
+  font-family: 'Orbitron', 'Impact', sans-serif;
+  font-size: 12pt;
+}
+
+nav {
+  text-align: left;
+  margin: auto 5%;
+  font-family: 'Orbitron', 'Impact', sans-serif;
+}
+
+nav > a {
+  text-decoration: none;
+  color: black;
+  padding-right: 20px;
+  margin-bottom: 15px;
+  transition-duration: 0.5s;
+  font-size: 14px;
+}
+
+nav > a:hover {
+  transition-duration: 0.5s;
+  color: cyan;
+  font-size: 18px;
+}
+
+#about-container > article {
+  margin: auto 20%;
+}

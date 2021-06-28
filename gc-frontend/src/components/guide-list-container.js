@@ -24,14 +24,14 @@ export default function GuideListContainer() {
                         </div>
                     ) : <p>No guides can be found!</p>}
                 </ul>
-                {(user) ? <Link to="/guides/add-guide">Add a meme</Link> : <></>}
+                {(user) ? <Link to="/guides/add-guide">Add a guide</Link> : <></>}
             </div>
         )
     } else {
         return (
             <div className="container">
                 <p>No guides can be found!</p>
-                {(user) ? <Link to="/guides/add-guide">Add a meme</Link> : <></>}
+                {(user) ? <Link to="/guides/add-guide">Add a guide</Link> : <></>}
             </div>
         )
     }

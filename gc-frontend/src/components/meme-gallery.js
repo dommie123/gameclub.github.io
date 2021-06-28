@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
+import { Redirect, Link } from 'react-router-dom';
 import {getAllMemes} from '../actions/meme-actions';
 
 export default function MemeGallery() {
@@ -18,6 +19,7 @@ export default function MemeGallery() {
                 <ul>
                     {memes.map((meme) => 
                     <li key={meme.id}>{meme.title} {meme.byteStream}</li>)}
+                    {(user) ? <Link to="/memes/add-meme">Add a meme</Link> : <></>}
                 </ul>
             </div>
         )
@@ -25,7 +27,7 @@ export default function MemeGallery() {
         return (
             <div className="container-lg" id="meme-container">
                 <b>Where'd all the memes go?!</b>
-                {user ? <button>Add a meme</button> : <></>}
+                {(user) ? <Link to="/memes/add-meme">Add a meme</Link> : <></>}
             </div>
         )
     }
