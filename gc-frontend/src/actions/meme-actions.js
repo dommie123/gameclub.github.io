@@ -43,7 +43,7 @@ export const getDankMemeById = (id) => {
 
 export const newDankMeme = (meme) => {
     return function(dispatch) {
-        let newMeme = GameClubDB.post("/meme", {
+        let newMeme = GameClubDB.post("/meme/", {
             title: meme.title,
             author: meme.author,
             byteStream: meme.bytes

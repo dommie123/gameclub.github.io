@@ -41,6 +41,11 @@
 * TODO: styling for other components
 */
 
+header > h1 {
+  margin-top: 5px;
+  font-family: "Russo One", "Roboto", "Courier New";
+}
+
 .form {
   border: 3px solid black;
   border-radius: 5px;
@@ -72,6 +77,7 @@ nav > a:hover {
   transition-duration: 0.5s;
   color: cyan;
   font-size: 18px;
+  margin-bottom: 5px;
 }
 
 #about-container > article {

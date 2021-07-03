@@ -4,6 +4,7 @@ export default function FormInput(props) {
     let type = props.type;
     let name = props.name;
     let display = (props.display) ? props.display : name;
+    let file = props.file;
 
     const handleChange = props.handleChange;
 
@@ -18,7 +19,8 @@ export default function FormInput(props) {
         return (
             <div className="form-input">
                 <label>{display}</label>
-                <input type={type} name={name} onChange={handleChange}/>
+                <input type={type == "image" ? "file" : type} name={name} onChange={handleChange}/>
+                {type == "image" ? <image src={file}></image> : <></>}
             </div>
         )
     }

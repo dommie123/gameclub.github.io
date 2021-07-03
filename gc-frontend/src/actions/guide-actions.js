@@ -1,6 +1,11 @@
 import {GET_ALL_GUIDES, GET_GUIDE_BY_ID, GET_GUIDE_BY_TITLE, GET_GUIDES_BY_AUTHOR, NEW_GUIDE} from './types';
 import {GameClubDB} from './axios-endpoints';
 
+const config = {
+    headers: {
+        'Access-Control-Allow-Origin':'http://localhost:3000'
+    }
+}
 export const getGuides = () => {
     return function(dispatch) {
         let guides = GameClubDB.get("/guide/all").then(data => dispatch({
@@ -47,7 +52,7 @@ export const getGuide = (name) => {
 
 export const newGuide = (guide) => {
     return function(dispatch) {
-        let g = GameClubDB.post("/guide", {
+        let g = GameClubDB.post("/guide/", {
             title: guide.title,
             description: guide.description,
             author: guide.author

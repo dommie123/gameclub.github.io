@@ -2,6 +2,7 @@ package com.gameclub.model;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -32,7 +33,7 @@ public class Guide {
 	
 	private String description;
 	
-	@ManyToOne
+	@ManyToOne(cascade=CascadeType.ALL)
 	private User author;
 	
 	public Guide(String title, String description, User author) {

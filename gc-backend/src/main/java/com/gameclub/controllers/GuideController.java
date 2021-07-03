@@ -27,7 +27,7 @@ import com.gameclub.service.GuideService;
 @RequestMapping(value="/guide")
 @NoArgsConstructor
 @AllArgsConstructor(onConstructor=@__(@Autowired))
-@CrossOrigin(origins="*")
+@CrossOrigin(origins="http://localhost:3000")
 public class GuideController {
 	
 	private GuideService gServ;
