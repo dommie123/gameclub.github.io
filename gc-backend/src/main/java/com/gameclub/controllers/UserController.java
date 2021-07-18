@@ -1,5 +1,6 @@
 package com.gameclub.controllers;
 
+import java.security.NoSuchAlgorithmException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,6 +41,8 @@ public class UserController {
 			uServ.registerUser(u);
 		} catch (UserAlreadyExistsException e) {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, e.getMessage(), e);
+		} catch (NoSuchAlgorithmException e) {
+			throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, e.getMessage(), e);
 		}
 		return new ResponseEntity<>(u, HttpStatus.CREATED);
 	}

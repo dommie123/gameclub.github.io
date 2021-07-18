@@ -28,7 +28,7 @@ export default function AddMeme() {
                 break;
             case "bytes":
                 setMeme({title: meme.title, author: user, bytes: reader.readAsBinaryString(e.target.files[0])});
-                break;
+                break;x
         }
     }
 

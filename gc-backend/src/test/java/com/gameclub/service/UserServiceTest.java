@@ -3,6 +3,7 @@ package com.gameclub.service;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
 
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -78,7 +79,7 @@ class UserServiceTest {
 	}
 
 	@Test
-	void testAddUser() throws UserAlreadyExistsException {
+	void testAddUser() throws UserAlreadyExistsException, NoSuchAlgorithmException {
 		List<Meme> mList = new ArrayList<>();
 		List<Guide> gList = new ArrayList<>();
 		User dom = new User(2, "#1 Hero", "password", "Dominick", "Wiley", "dom@example.com", mList, gList);
