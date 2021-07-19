@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  margin-top: 0;
 }
 
 .App-logo {
@@ -62,6 +63,8 @@ header > h3 {
   border-radius: 5px;
   text-align: center;
   margin: auto 10%;
+  padding-bottom: 20px;
+  padding-top: 10px;
 }
 
 .form > input {
@@ -71,8 +74,9 @@ header > h3 {
 
 nav {
   text-align: left;
-  margin: auto 5%;
+  padding-left: 5%;
   font-family: 'Orbitron', 'Impact', sans-serif;
+  background-color: lightgray;
 }
 
 nav > a {
@@ -82,6 +86,7 @@ nav > a {
   margin-bottom: 15px;
   transition-duration: 0.5s;
   font-size: 14px;
+  margin-top: 5px;
 }
 
 nav > a:hover {
@@ -93,4 +98,28 @@ nav > a:hover {
 
 #about-container > article {
   margin: auto 20%;
+}
+
+.container-sm {
+  margin: 20px auto;
+}
+
+.container > ul {
+  list-style-type: none;
+}
+
+label, input {
+  margin: 15px 5px;
+}
+
+footer {
+  margin-top: 3%;
+}
+
+.subtitle {
+  margin-top: 5%;
+}
+
+.first-link {
+  margin-left: 5%;
 }

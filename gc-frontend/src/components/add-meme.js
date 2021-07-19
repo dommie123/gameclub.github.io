@@ -22,12 +22,12 @@ export default function AddMeme() {
 
     const onChange = (e) => {
         //console.log(e.target.name, e.target.value);
-        if (e.target.files[0])
+        if (e.target.files)
             console.log(e.target.files[0]);
 
-        if (!e.target.files[0].type.contains("image")) {
-            // Display error without a popup.
-        }
+        // if (!e.target.files[0].type.contains("image")) {
+        //     // Display error without a popup.
+        // }
 
         switch (e.target.name) {
             case "title":

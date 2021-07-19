@@ -18,9 +18,9 @@ export default function GuideListContainer() {
             <div className="container">
                 <ul>
                     {guides.data ? guides.data.map((guide) => 
-                        <div className="container">
+                        <div className="container-sm">
                             <h5>{guide.title}</h5>
-                            <li key={guide.id}>{guide.title}{guide.description}</li>
+                            <li key={guide.id}>{guide.description}</li>
                         </div>
                     ) : <p>No guides can be found!</p>}
                 </ul>

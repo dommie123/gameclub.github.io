@@ -12,7 +12,7 @@ export default function Header(props) {
     if (navIsHidden) {
         return (
             <div className="container-lg">
-            <header className="header">
+            <header className={(isSubtitle) ? "subtitle" : "header"}>
                 {(isSubtitle) ? <h3>{title}</h3> : <h1>{title}</h1>}
             </header>
         </div>
@@ -22,7 +22,7 @@ export default function Header(props) {
         return (
             <div className="container-lg">
                 <nav className="nav">
-                    <Link to="/home">Home</Link>
+                    <Link to="/home" className="first-link" >Home</Link>
                     <Link to="/guides">Guides</Link>
                     <Link to="/memes">Meme Gallery</Link>
                     <Link to="/about-us">About Us</Link>
