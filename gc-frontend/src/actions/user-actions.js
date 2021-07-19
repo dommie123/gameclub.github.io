@@ -6,6 +6,7 @@ export const registerUser = (u) => {
         let user = GameClubDB.post("/user/", {
             id: u.id,
             username: u.username,
+            password: u.password,
             firstName: u.firstName,
             lastName: u.lastName,
             email: u.email
@@ -23,6 +24,7 @@ export const registerAdmin = (admin) => {
         let user = GameClubDB.post("/user/", {
             id: admin.id,
             username: admin.username,
+            password: admin.password,
             firstName: admin.firstName,
             lastName: admin.lastName,
             email: admin.email

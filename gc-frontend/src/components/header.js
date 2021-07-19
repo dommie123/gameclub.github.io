@@ -6,13 +6,14 @@ export default function Header(props) {
     let title = props.title;
     let navIsHidden = props.navIsHidden;
     const user = useSelector(state => state.users.currentUser);
+    const isSubtitle= props.isSubtitle;
     console.log(user);
 
     if (navIsHidden) {
         return (
             <div className="container-lg">
             <header className="header">
-                <h1>{title}</h1>
+                {(isSubtitle) ? <h3>{title}</h3> : <h1>{title}</h1>}
             </header>
         </div>
         )
@@ -30,7 +31,7 @@ export default function Header(props) {
                     {(user) ? <></> : <Link to="/register">Sign Up</Link>}
                 </nav>
                 <header className="header">
-                    <h1>{title}</h1>
+                    {(isSubtitle) ? <h3>{title}</h3> : <h1>{title}</h1>}
                 </header>
             </div>
         )

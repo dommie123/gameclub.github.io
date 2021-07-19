@@ -21,14 +21,21 @@ export default function AddMeme() {
     }
 
     const onChange = (e) => {
-        console.log(e.target.name, e.target.value);
+        //console.log(e.target.name, e.target.value);
+        if (e.target.files[0])
+            console.log(e.target.files[0]);
+
+        if (!e.target.files[0].type.contains("image")) {
+            // Display error without a popup.
+        }
+
         switch (e.target.name) {
             case "title":
                 setMeme({title: e.target.value, author: user, bytes: meme.bytes});
                 break;
             case "bytes":
                 setMeme({title: meme.title, author: user, bytes: reader.readAsBinaryString(e.target.files[0])});
-                break;x
+                break;
         }
     }
 

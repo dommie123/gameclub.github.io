@@ -41,9 +41,20 @@
 * TODO: styling for other components
 */
 
+p, ul, label {
+  font-family: "Roboto", "Courier New";
+}
+
 header > h1 {
   margin-top: 5px;
   font-family: "Russo One", "Roboto", "Courier New";
+}
+
+header > h3 {
+    margin-top: 5px;
+    font-family: "Orbitron", "Roboto", "Courier New";
+    font-weight: bold;
+    font-size: 16pt;
 }
 
 .form {
