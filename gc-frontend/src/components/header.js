@@ -7,7 +7,7 @@ export default function Header(props) {
     let navIsHidden = props.navIsHidden;
     const user = useSelector(state => state.users.currentUser);
     const isSubtitle= props.isSubtitle;
-    console.log(user);
+    //console.log(user);
 
     if (navIsHidden) {
         return (

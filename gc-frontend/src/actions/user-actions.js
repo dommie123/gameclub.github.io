@@ -47,12 +47,12 @@ export const logout = () => {
 
 export const login = (username) => {
     return function(dispatch) {
-        let user = GameClubDB.get(`/user/username/${username}`).then(data => dispatch({
+        /*let user = */return GameClubDB.get(`/user/username/${username}`).then(data => dispatch({
             type: AUTH_LOGIN,
             currentUser: data
         }));
-        console.log(user);
-        return user.data;
+        //console.log(user);
+        //return await user;
     }
 }
 
@@ -62,7 +62,7 @@ export const getAllUsers = () => {
             type: GET_ALL_USERS,
             payload: data
         }));
-        console.log(users);
+        //console.log(users);
         return users.data;
     }
 }

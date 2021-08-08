@@ -8,11 +8,14 @@ const initialState = {
 }
 
 export default function(state=initialState, action) {
+    if (action.currentUser) {
+        console.log(action.currentUser.data);
+    }
     switch (action.type) {
         case AUTH_LOGIN: 
         return {
             ...state,
-            currentUser: action.currentUser,
+            currentUser: action.currentUser.data,
             isLoggedIn: true,
             isAdmin: action.currentUser.isAdmin
         }

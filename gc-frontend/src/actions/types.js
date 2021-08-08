@@ -20,3 +20,6 @@ export const GET_DANK_MEME_BY_ID = 'GET_DANK_MEME_BY_ID';
 export const GET_MEMEZ_BY_AUTHOR = 'GET_MEMEZ_BY_AUTHOR';
 export const GET_ALL_MEMEZ = 'GET_ALL_MEMEZ';
 export const YEET_MEME = 'YEET_MEME';
+
+// User Interface Types
+export const TOGGLE_ALERT = 'TOGGLE_ALERT';
