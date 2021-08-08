@@ -1,6 +1,13 @@
+body {
+  background-image: url("assets/background.jpg");
+}
+
 .App {
   text-align: center;
   margin-top: 0;
+  padding: auto 0;
+  background-color: transparent;
+  /* background-image: url("assets/background.jpg"); */
 }
 
 .App-logo {
@@ -42,8 +49,13 @@
 * TODO: styling for other components
 */
 
-p, ul, label {
+p, ul, label, h4 {
   font-family: "Roboto", "Courier New";
+  color: white;
+}
+
+header {
+  color: white;
 }
 
 header > h1 {
@@ -52,10 +64,10 @@ header > h1 {
 }
 
 header > h3 {
-    margin-top: 5px;
-    font-family: "Orbitron", "Roboto", "Courier New";
-    font-weight: bold;
-    font-size: 16pt;
+  margin-top: 5px;
+  font-family: "Orbitron", "Roboto", "Courier New";
+  font-weight: bold;
+  font-size: 16pt;
 }
 
 .form {
@@ -74,9 +86,10 @@ header > h3 {
 
 nav {
   text-align: left;
-  padding-left: 5%;
+  /* padding-left: 5%; */
   font-family: 'Orbitron', 'Impact', sans-serif;
-  background-color: lightgray;
+  background-color: rgba(211, 211, 211, 0.7);
+  width: 100%;
 }
 
 nav > a {
