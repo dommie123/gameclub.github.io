@@ -1,4 +1,4 @@
-import {AUTH_LOGIN, GET_ALL_USERS, AUTH_LOGOUT, REGISTER_ADMIN, REGISTER_USER} from '../actions/types';
+import {AUTH_LOGIN, GET_ALL_USERS, AUTH_LOGOUT, REGISTER_ADMIN, REGISTER_USER, UPDATE_USER, UPDATE_ADMIN} from '../actions/types';
 
 const initialState = {
     users: [],
@@ -39,6 +39,18 @@ export default function(state=initialState, action) {
         return {
             ...state,
             users: action.payload
+        }
+        case UPDATE_USER:
+        return {
+            ...state,
+            currentUser: action.currentUser,
+            isAdmin: false
+        }
+        case UPDATE_ADMIN:
+        return {
+            ...state,
+            currentUser: action.currentUser,
+            isAdmin: true
         }
         default: 
         return state;

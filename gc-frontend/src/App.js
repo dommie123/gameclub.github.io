@@ -58,6 +58,9 @@ function App() {
           <Route path="/logout">
             <Logout />
           </Route>
+          <Route path="/settings">
+            <Header title="Profile Settings" />
+          </Route>
           <Footer />
         </div>
       </BrowserRouter>

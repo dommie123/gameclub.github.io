@@ -1,4 +1,4 @@
-import {AUTH_LOGIN, AUTH_LOGOUT, GET_ALL_USERS, REGISTER_ADMIN, REGISTER_USER} from './types';
+import {AUTH_LOGIN, AUTH_LOGOUT, GET_ALL_USERS, REGISTER_ADMIN, REGISTER_USER, UPDATE_ADMIN, UPDATE_USER, BAN_USER} from './types';
 import {GameClubDB} from './axios-endpoints';
 
 export const registerUser = (u) => {
@@ -37,6 +37,53 @@ export const registerAdmin = (admin) => {
     }
 }
 
+export const updateUser = (u) => {
+    return function(dispatch) {
+        let user = GameClubDB.put("/user/", {
+            id: u.id,
+            username: u.username,
+            password: u.password,
+            firstName: u.firstName,
+            lastName: u.lastName,
+            email: u.email
+        }).then(data => dispatch({
+            type: UPDATE_USER,
+            currentUser: data
+        }));
+        console.log(user);
+        return user.data;
+    }
+}
+
+export const updateAdmin = (admin) => {
+    return function(dispatch) {
+        let user = GameClubDB.put("/user/", {
+            id: admin.id,
+            username: admin.username,
+            password: admin.password,
+            firstName: admin.firstName,
+            lastName: admin.lastName,
+            email: admin.email
+        }).then(data => dispatch({
+            type: UPDATE_ADMIN,
+            currentUser: data
+        }));
+        console.log(user);
+        return user.data;
+    }
+}
+
+export const banUser = (user) => {
+    return function(dispatch) {
+        return GameClubDB.put("/user/", {
+            id: user.id,
+            banned: true
+        }).then(response => dispatch({
+            type: BAN_USER,
+            newUser: response.data
+        }))
+    }
+}
 export const logout = () => {
     return function(dispatch) {
         return dispatch({

@@ -4,6 +4,9 @@ export const AUTH_LOGOUT = 'AUTH_LOGOUT';
 export const GET_ALL_USERS = 'GET_ALL_USERS';
 export const REGISTER_USER = 'REGISTER_USER';
 export const REGISTER_ADMIN = 'REGISTER_ADMIN';
+export const UPDATE_USER = 'UPDATE_USER';
+export const UPDATE_ADMIN = 'UPDATE_USER';
+export const BAN_USER = 'BAN_USER';
 
 // Guide Types
 export const NEW_GUIDE = 'NEW_GUIDE';

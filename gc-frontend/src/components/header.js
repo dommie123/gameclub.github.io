@@ -26,9 +26,10 @@ export default function Header(props) {
                     <Link to="/guides">Guides</Link>
                     <Link to="/memes">Meme Gallery</Link>
                     <Link to="/about-us">About Us</Link>
+                    {(user) ? <Link to="/settings">Settings</Link> : <></>}
                     {(user) ? <Link to="/logout">Sign Out</Link>  
                             : <Link to="/login">Sign In</Link>}
-                    {(user) ? <></> : <Link to="/register">Sign Up</Link>}
+                    {(user) ? <></> : <Link to="/register">Sign Up</Link>}                   
                 </nav>
                 <header className="header">
                     {(isSubtitle) ? <h3>{title}</h3> : <h1>{title}</h1>}
