@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
-import {Route, Router, Redirect, BrowserRouter} from 'react-router-dom';
-import {Provider} from 'react-redux';
+import {Route, Redirect, BrowserRouter} from 'react-router-dom';
+import {Provider, useSelector} from 'react-redux';
 import Header from './components/header';
 import Footer from './components/footer';
 import AboutMe from './components/about-us';
@@ -44,11 +44,11 @@ function App() {
             <MemeGallery />
           </Route>
           <Route path="/memes/add-meme">
-            <Header title="Post a dank meme here!" navIsHidden={true} />
+            <Header title="Post a dank meme here!" navIsHidden={true} isSubtitle={true} />
             <AddMeme />
           </Route>
           <Route path="/guides/add-guide">
-            <Header title="Got advice? Post it here!" navIsHidden={true} />
+            <Header title="Got advice? Post it here!" navIsHidden={true} isSubtitle={true} />
             <AddGuide />
           </Route>
           <Route path="/about-us">
@@ -57,6 +57,9 @@ function App() {
           </Route>
           <Route path="/logout">
             <Logout />
+          </Route>
+          <Route path="/settings">
+            <Header title="Profile Settings" />
           </Route>
           <Footer />
         </div>

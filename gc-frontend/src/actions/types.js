@@ -4,6 +4,9 @@ export const AUTH_LOGOUT = 'AUTH_LOGOUT';
 export const GET_ALL_USERS = 'GET_ALL_USERS';
 export const REGISTER_USER = 'REGISTER_USER';
 export const REGISTER_ADMIN = 'REGISTER_ADMIN';
+export const UPDATE_USER = 'UPDATE_USER';
+export const UPDATE_ADMIN = 'UPDATE_USER';
+export const BAN_USER = 'BAN_USER';
 
 // Guide Types
 export const NEW_GUIDE = 'NEW_GUIDE';
@@ -20,3 +23,6 @@ export const GET_DANK_MEME_BY_ID = 'GET_DANK_MEME_BY_ID';
 export const GET_MEMEZ_BY_AUTHOR = 'GET_MEMEZ_BY_AUTHOR';
 export const GET_ALL_MEMEZ = 'GET_ALL_MEMEZ';
 export const YEET_MEME = 'YEET_MEME';
+
+// User Interface Types
+export const TOGGLE_ALERT = 'TOGGLE_ALERT';

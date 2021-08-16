@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useHistory } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import {login} from '../actions/user-actions';
 import FormInput from './form-input';
 
@@ -13,7 +13,7 @@ export default function LoginForm() {
     const handleSubmit = (e) => {
         e.preventDefault();
         dispatch(login(user.username));
-        alert(`Welcome, ${user.username}!`);
+        //alert(`Welcome, ${user.username}!`);
     }
 
     const handleChange = (e) => {
@@ -28,7 +28,7 @@ export default function LoginForm() {
 
     useEffect(() => {
         if (currentUser) {
-            console.log("At this point, the redirect should occur.");
+            //console.log("At this point, the redirect should occur.");
             history.push("/home");
         }
     }, [currentUser])
@@ -38,6 +38,8 @@ export default function LoginForm() {
             <FormInput type="text" name="username" display="Username: " handleChange={handleChange} />
             <FormInput type="password" name="password" display="Password: " handleChange={handleChange} />
             <FormInput type="submit" display="Log In" />
+            <br />
+            <p>Don't have an account? <Link to="/register">Sign up</Link>!</p>
         </form>
     )
 }

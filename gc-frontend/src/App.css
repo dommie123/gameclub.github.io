@@ -1,5 +1,13 @@
+body {
+  background-image: url("assets/background.jpg");
+}
+
 .App {
   text-align: center;
+  margin-top: 0;
+  padding: auto 0;
+  background-color: transparent;
+  /* background-image: url("assets/background.jpg"); */
 }
 
 .App-logo {
@@ -24,8 +32,8 @@
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.App-link, a {
+  color: #a3ebff;
 }
 
 @keyframes App-logo-spin {
@@ -41,9 +49,30 @@
 * TODO: styling for other components
 */
 
+.MuiTypography-root {
+  font-family: "Roboto", "Courier New";
+  color: black;
+}
+
+p, ul, h4 {
+  font-family: "Roboto", "Courier New";
+  color: white;
+}
+
+header, h3 {
+  color: white;
+}
+
 header > h1 {
   margin-top: 5px;
   font-family: "Russo One", "Roboto", "Courier New";
+}
+
+header > h3 {
+  margin-top: 5px;
+  font-family: "Orbitron", "Roboto", "Courier New";
+  font-weight: bold;
+  font-size: 16pt;
 }
 
 .form {
@@ -51,6 +80,8 @@ header > h1 {
   border-radius: 5px;
   text-align: center;
   margin: auto 10%;
+  padding-bottom: 20px;
+  padding-top: 10px;
 }
 
 .form > input {
@@ -60,8 +91,10 @@ header > h1 {
 
 nav {
   text-align: left;
-  margin: auto 5%;
+  /* padding-left: 5%; */
   font-family: 'Orbitron', 'Impact', sans-serif;
+  background-color: rgba(211, 211, 211, 0.7);
+  width: 100%;
 }
 
 nav > a {
@@ -71,6 +104,7 @@ nav > a {
   margin-bottom: 15px;
   transition-duration: 0.5s;
   font-size: 14px;
+  margin-top: 5px;
 }
 
 nav > a:hover {
@@ -82,4 +116,38 @@ nav > a:hover {
 
 #about-container > article {
   margin: auto 20%;
+}
+
+.container-sm {
+  margin: 20px auto;
+}
+
+.container > ul {
+  list-style-type: none;
+}
+
+label, input {
+  margin: 15px 5px;
+}
+
+footer, .subtitle {
+  margin-top: 3%;
+}
+
+.first-link {
+  margin-left: 5%;
+}
+
+form > p {
+  color: black;
+}
+
+.form, form {
+  background-color:rgba(255, 255, 255, 0.7);
+  color: black;
+  width: 66%;
+  position: relative;
+  left: 15%;
+  border: 3px solid black;
+  border-radius: 5px;
 }

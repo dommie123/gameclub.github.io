@@ -19,7 +19,7 @@ export default function FormInput(props) {
         return (
             <div className="form-input">
                 <label>{display}</label>
-                <input type={type == "image" ? "file" : type} name={name} onChange={handleChange}/>
+                <input type={type == "image" ? "file" : type} name={name} accept={type == "image" ? "image/*" : null} multiple={false} onChange={handleChange}/>
                 {type == "image" ? <image src={file}></image> : <></>}
             </div>
         )

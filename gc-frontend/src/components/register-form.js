@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import {Link} from 'react-router-dom';
 import {useSelector, useDispatch} from 'react-redux';
 import {registerUser} from '../actions/user-actions';
 import FormInput from './form-input';
@@ -53,6 +54,8 @@ export default function RegisterForm() {
             <FormInput type="password" name="confirmPass" display="Confirm your Password: " handleChange={handleChange} />
             <FormInput type="checkbox" name="agree" display="I agree to the terms and conditions of this site (as mentioned in Discord): " handleChange={handleChange} />
             <FormInput type="submit" display="Register"/>
+            <br />
+            <p>Already have an account? <Link to="/login">Sign in</Link>!</p>
         </form>
     )
 }

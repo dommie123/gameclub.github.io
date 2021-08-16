@@ -41,7 +41,7 @@ export const getGuidesByAuthor = (authId) => {
 
 export const getGuide = (name) => {
     return function(dispatch) {
-        let guide = GameClubDB.get(`guide/title/${name}`).then(data => dispatch({
+        let guide = GameClubDB.get(`/guide/title/${name}`).then(data => dispatch({
             type: GET_GUIDE_BY_TITLE,
             payload: data
         })).catch(console.log("Could not get the guide! Panic!"));
