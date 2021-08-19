@@ -1,5 +1,6 @@
 import React, {useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
+import {Link} from 'react-router-dom';
 import {logout} from "../actions/user-actions";
 import { closeAlert } from "../actions/ui-actions";
 
@@ -19,6 +20,7 @@ export default function LogOut() {
     return (
         <div id="logout-message">
             <h3>Thanks for checking in! See you again soon!</h3>
+            <Link to="/home" className="btn-secondary">Back to Home</Link>
         </div>
     )
 }

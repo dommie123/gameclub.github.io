@@ -67,7 +67,7 @@ export default function AddMeme() {
     }
 
     return (
-        <div className="container-md">
+        <div className="container-md" style={{position: "relative", left: "5%",}}>
             <form onSubmit={onSubmit} className="form">
                 <FormInput type="text" name="title" display="Title: " handleChange={onChange} />
                 <FormInput type="image" name="bytes" display="Upload Meme Here: " file={meme.bytes} handleChange={handleImage} />

@@ -40,6 +40,8 @@ public class User {
 	
 	private String email;
 	
+	//private boolean banned;
+	
 	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY)
 	private List<Meme> memes;
 	
@@ -52,6 +54,7 @@ public class User {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
+		//this.banned = false;
 	}
 
 }

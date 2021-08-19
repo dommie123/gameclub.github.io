@@ -34,12 +34,14 @@ export default function LoginForm() {
     }, [currentUser])
 
     return (
-        <form onSubmit={handleSubmit}>
-            <FormInput type="text" name="username" display="Username: " handleChange={handleChange} />
-            <FormInput type="password" name="password" display="Password: " handleChange={handleChange} />
-            <FormInput type="submit" display="Log In" />
-            <br />
-            <p>Don't have an account? <Link to="/register">Sign up</Link>!</p>
-        </form>
+        <div className="container-lg" id="login-container" style={{position: "relative", left: "4%",}}>
+            <form onSubmit={handleSubmit} className="form">
+                <FormInput type="text" name="username" display="Username: " handleChange={handleChange} />
+                <FormInput type="password" name="password" display="Password: " handleChange={handleChange} />
+                <FormInput type="submit" display="Log In" />
+                <br />
+                <p>Don't have an account? <Link to="/register">Sign up</Link>!</p>
+            </form>
+        </div>
     )
 }

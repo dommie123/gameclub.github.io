@@ -54,6 +54,10 @@ body {
   color: black;
 }
 
+ul {
+  margin-left: 0;
+}
+
 p, ul, h4 {
   font-family: "Roboto", "Courier New";
   color: white;
@@ -75,11 +79,14 @@ header > h3 {
   font-size: 16pt;
 }
 
+/* .container-lg {
+  position: relative;
+  right: 8%;
+} */
+
 .form {
-  border: 3px solid black;
-  border-radius: 5px;
   text-align: center;
-  margin: auto 10%;
+  margin-left: 2.3em;
   padding-bottom: 20px;
   padding-top: 10px;
 }
@@ -87,6 +94,16 @@ header > h3 {
 .form > input {
   font-family: 'Orbitron', 'Impact', sans-serif;
   font-size: 12pt;
+}
+
+.form, form {
+  background-color:rgba(255, 255, 255, 0.7);
+  color: black;
+  width: 66%;
+  position: relative;
+  left: 8%;
+  border: 3px solid black;
+  border-radius: 5px;
 }
 
 nav {
@@ -142,12 +159,6 @@ form > p {
   color: black;
 }
 
-.form, form {
-  background-color:rgba(255, 255, 255, 0.7);
-  color: black;
-  width: 66%;
-  position: relative;
-  left: 15%;
-  border: 3px solid black;
-  border-radius: 5px;
+.btn-secondary {
+  text-decoration: none;
 }

@@ -7,7 +7,7 @@ import App from './App';
 //   expect(linkElement).toBeInTheDocument();
 // });
 
-test('renders header on screen', () => {
+test('render header on screen without crashing', () => {
   render(<App />);
   const header = screen.getByText(/Game Club Official Website/i);
   expect(header).toBeInTheDocument();

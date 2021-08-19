@@ -29,10 +29,12 @@ export default function AddGuide() {
     }
 
     return (
-        <form onSubmit={onSubmit} className="form">
-            <FormInput type="text" name="title" display="Title: " handleChange={onChange} />
-            <FormInput type="text" name="description" display="Description: " handleChange={onChange} />
-            {user ? <FormInput type="submit" value="Submit Meme" /> : <Redirect to="/guides" />}
-        </form>
+        <div className="container-lg" style={{position: "relative", left: "5%",}}>
+            <form onSubmit={onSubmit} className="form">
+                <FormInput type="text" name="title" display="Title: " handleChange={onChange} />
+                <FormInput type="text" name="description" display="Description: " handleChange={onChange} />
+                {user ? <FormInput type="submit" value="Submit Meme" /> : <Redirect to="/guides" />}
+            </form>
+        </div>
     )
 }

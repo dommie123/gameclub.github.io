@@ -15,7 +15,7 @@ const useStyles = makeStyles({
       marginBottom: "1em",
       width: "50%",
       position: "relative",
-      left: "25%",
+      left: "24%",
       backgroundColor: "rgba(82, 241, 4, 0.7)",
       border: "2px solid green",
       borderRadius: "4px",

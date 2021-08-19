@@ -14,6 +14,7 @@ import MemeGallery from './components/meme-gallery';
 import Logout from './components/logout'
 import AddMeme from './components/add-meme';
 import AddGuide from './components/add-guide';
+import { ProfileSettings } from './components/settings';
 
 function App() {
   return (
@@ -60,6 +61,7 @@ function App() {
           </Route>
           <Route path="/settings">
             <Header title="Profile Settings" />
+            <ProfileSettings />
           </Route>
           <Footer />
         </div>

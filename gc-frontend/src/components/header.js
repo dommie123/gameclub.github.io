@@ -21,7 +21,7 @@ export default function Header(props) {
     else {
         return (
             <div className="container-lg">
-                <nav className="nav">
+                <nav className="nav" id="main-nav">
                     <Link to="/home" className="first-link" >Home</Link>
                     <Link to="/guides">Guides</Link>
                     <Link to="/memes">Meme Gallery</Link>
