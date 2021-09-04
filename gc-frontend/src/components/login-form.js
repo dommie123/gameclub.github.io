@@ -31,7 +31,7 @@ export default function LoginForm() {
             //console.log("At this point, the redirect should occur.");
             history.push("/home");
         }
-    }, [currentUser])
+    }, [currentUser, history])
 
     return (
         <div className="container-lg" id="login-container" style={{position: "relative", left: "4%",}}>

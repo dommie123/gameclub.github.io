@@ -56,6 +56,8 @@ export default function AddMeme() {
             case "bytes":
                 handleImage(e);
                 break;
+            default: 
+                console.log(e.target.name);
         }
     }
 

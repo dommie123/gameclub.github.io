@@ -5,7 +5,7 @@ const initialState = {
     meme: {}
 }
 
-export default function(state=initialState, action) {
+export default function memeReducer(state=initialState, action) {
     switch (action.type) {
         case GET_DANK_MEME_BY_TITLE: 
         return {

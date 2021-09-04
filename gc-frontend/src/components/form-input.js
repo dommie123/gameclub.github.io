@@ -8,7 +8,7 @@ export default function FormInput(props) {
 
     const handleChange = props.handleChange;
 
-    if (type == "submit") {
+    if (type === "submit") {
         return (
             <div className="form-submit">
                 <input type="submit" value={display} />
@@ -19,8 +19,8 @@ export default function FormInput(props) {
         return (
             <div className="form-input">
                 <label>{display}</label>
-                <input type={type == "image" ? "file" : type} name={name} accept={type == "image" ? "image/*" : null} multiple={false} onChange={handleChange}/>
-                {type == "image" ? <image src={file}></image> : <></>}
+                <input type={type === "image" ? "file" : type} name={name} accept={type === "image" ? "image/*" : null} multiple={false} onChange={handleChange}/>
+                {type === "image" ? <image src={file}></image> : <></>}
             </div>
         )
     }

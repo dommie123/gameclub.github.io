@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import FormInput from './form-input';
 import {newGuide} from '../actions/guide-actions';
@@ -17,6 +17,8 @@ export default function AddGuide() {
             break;
             case "description": setDescription(e.target.value);
             break;
+            default: 
+            console.log(e.target.name);
         }
     }
 

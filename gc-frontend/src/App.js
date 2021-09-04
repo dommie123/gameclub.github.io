@@ -1,7 +1,7 @@
-import logo from './logo.svg';
+//import logo from './logo.svg';
 import './App.css';
 import {Route, Redirect, BrowserRouter} from 'react-router-dom';
-import {Provider, useSelector} from 'react-redux';
+import {Provider} from 'react-redux';
 import Header from './components/header';
 import Footer from './components/footer';
 import AboutMe from './components/about-us';

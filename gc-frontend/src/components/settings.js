@@ -1,11 +1,11 @@
 import React, {useEffect} from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector/*, useDispatch*/ } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import FormInput from './form-input';
 
 export function ProfileSettings(props) {
     const user = useSelector(state => state.users.currentUser);
-    const dispatch = useDispatch();
+    //const dispatch = useDispatch();
 
     const handleChange = (e) => {
         e.preventDefault();

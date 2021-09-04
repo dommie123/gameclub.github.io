@@ -74,6 +74,20 @@ public class UserService {
 		return users;
 	}
 	
+	public User updateUserById(int id, User updatedUser) throws UserNotFoundException {
+		User u = uDao.getUserById(id);
+		if (u == null)
+			throw new UserNotFoundException();
+		
+		u.setUsername(updatedUser.getUsername());
+		u.setFirstName(updatedUser.getFirstName());
+		u.setLastName(updatedUser.getLastName());
+		u.setEmail(updatedUser.getEmail());
+		
+		uDao.save(u);
+		return u;
+	}
+	
 	public void removeUser(int id) throws UserNotFoundException {
 		if (!uDao.existsById(id))
 			throw new UserNotFoundException();

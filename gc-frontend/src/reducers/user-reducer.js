@@ -7,7 +7,7 @@ const initialState = {
     isAdmin: false
 }
 
-export default function(state=initialState, action) {
+export default function userReducer(state=initialState, action) {
     if (action.currentUser) {
         console.log(action.currentUser.data);
     }

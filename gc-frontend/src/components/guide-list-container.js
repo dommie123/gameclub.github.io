@@ -4,10 +4,11 @@ import {Link} from 'react-router-dom';
 import {getGuides} from '../actions/guide-actions';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
+//import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
-import Button from '@material-ui/core/Button';
+//import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+//import Icon from '@material-ui/core/Icon';
 
 const useStyles = makeStyles({
     root: {
@@ -44,12 +45,11 @@ export default function GuideListContainer() {
     const classes = useStyles();
     const guides = useSelector(state => state.guides.guides);
     const user = useSelector(state => state.users.currentUser);
-
     const dispatch = useDispatch();
 
     useEffect(() => {
         dispatch(getGuides());
-    }, []);
+    });
 
     if (guides) {
         return (
@@ -75,14 +75,14 @@ export default function GuideListContainer() {
                         </Card>
                     ) : <p>No guides can be found!</p>}
                 </ul>
-                {(user) ? <Link to="/guides/add-guide">Add a guide</Link> : <></>}
+                {(user) ? <Link className="add-button" to="/guides/add-guide" style={{position: "fixed", bottom: 50, right: 50}}>+</Link> : <></>}
             </div>
         )
     } else {
         return (
             <div className="container">
                 <p>No guides can be found!</p>
-                {(user) ? <Link to="/guides/add-guide">Add a guide</Link> : <></>}
+                {(user) ? <Link className="add-button" to="/guides/add-guide" style={{position: "fixed", bottom: 50, right: 50}}>+</Link> : <></>}
             </div>
         )
     }
