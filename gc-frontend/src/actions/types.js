@@ -25,4 +25,5 @@ export const GET_ALL_MEMEZ = 'GET_ALL_MEMEZ';
 export const YEET_MEME = 'YEET_MEME';
 
 // User Interface Types
-export const TOGGLE_ALERT = 'TOGGLE_ALERT';
+export const ADD_ALERT = 'ADD_ALERT';
+export const REMOVE_ALERT = 'REMOVE_ALERT'

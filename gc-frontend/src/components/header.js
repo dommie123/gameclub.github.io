@@ -24,7 +24,7 @@ export default function Header(props) {
                 <nav className="nav" id="main-nav">
                     <Link to="/home" className="first-link" >Home</Link>
                     <Link to="/guides">Guides</Link>
-                    <Link to="/memes">Meme Gallery</Link>
+                    {/* <Link to="/memes">Meme Gallery</Link> */}
                     <Link to="/about-us">About Us</Link>
                     {(user) ? <Link to="/settings">Settings</Link> : <></>}
                     {(user) ? <Link to="/logout">Sign Out</Link>  

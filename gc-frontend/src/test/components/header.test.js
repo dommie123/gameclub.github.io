@@ -1,5 +1,10 @@
 import { render, screen } from '@testing-library/react';
 import React from 'react';
+import {Provider} from "react-redux";
+import {store} from "../../store";
+
+import App from '../../App';
+import Header from '../../components/header';
 
 describe("Header Component", () => {
     it("can render with the nav bar enabled", () => {
@@ -9,12 +14,12 @@ describe("Header Component", () => {
     });
 
     it("can render without the nav bar enabled", () => {
-        render(<Header navIsHidden={true} title="Test Header"/>);
+        render(<Provider store={store}><Header navIsHidden={true} title="Test Header"/></Provider>);
         const header = screen.getByText("Test Header");
         const nav = document.getElementById("main-nav");
 
         expect(header).toBeInTheDocument();
-        expect(nav).toBeFalsey();
+        expect(nav).not.toBeInTheDocument();
     });
 
     it("can change the title when a user clicks a link in the nav bar", () => {

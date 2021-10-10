@@ -1,44 +1,28 @@
-import React, {useState} from "react"
+import React, {useState, useEffect} from "react"
 import { useSelector, useDispatch } from "react-redux"
 import { useHistory, Redirect } from "react-router-dom";
 import { newDankMeme } from "../actions/meme-actions";
 import FormInput from "./form-input";
+import { GameClubDB } from "../actions/axios-endpoints";
 
 export default function AddMeme() {
     const dispatch = useDispatch();
     const user = useSelector(state => state.users.currentUser);
     const [meme, setMeme] = useState({title: "", author: user, bytes: []});
+    const [file, setFile] = useState(null);
+    //const [buffer, setBuffer] = useState(null);
     const history = useHistory();
 
     const handleImage = (e) => {
-        const file = e.target.files[0];
-        // const formData = new FormData();
-        // formData.append('image', file);
-        // console.log(formData);
-
-
-        getBase64(file).then(byteArr => {
-            localStorage["fileBytes"] = byteArr;
-            console.debug("file stored",localStorage["fileBytes"]);
-            console.log(/*typeof*/ localStorage["fileBytes"]);
-            setMeme({title: meme.title, author: user, bytes: localStorage["fileBytes"]});
-        });
-
+        setFile(e.target.files[0]);
+        // const stream = file.stream();
+        // const reader = stream.getReader();
+        // // console.log(reader.read(stream));
+        // reader.read(stream).then(res => {
+        //     console.log(res.value.buffer);
+        //     //setBuffer(res.value.buffer);
+        // });
     }
-
-    const getBase64 = (file) => {
-        return new Promise((resolve, reject) => {
-            const reader = new FileReader();
-            reader.onload = () => resolve(reader.result);
-            reader.onerror = error => reject(error);
-            // reader.readAsDataURL(file);
-            // reader.onerror = (err) => {
-            //     console.log("An image-related error occurred! Panic!!!");
-            // }
-            reader.readAsArrayBuffer(file);
-        }) 
-    }
-
 
     const onChange = (e) => {
         //console.log(e.target.name, e.target.value);
@@ -63,10 +47,26 @@ export default function AddMeme() {
 
     const onSubmit = (e) => {
         e.preventDefault();
-        dispatch(newDankMeme(meme));
-        alert("Meme was successfully uploaded!");
+        const formData = new FormData();
+        formData.append('file', file);
+        GameClubDB.post("/image/upload", {
+            processData : false,
+            contentType : false,
+            data : formData,
+            success : function(){
+                alert("Meme was successfully uploaded!");
+            },
+            error : function(e){
+                console.warn("Image upload failed! Error:", e);
+            }
+        })
+        //dispatch(newDankMeme(meme));
         history.push("/memes");
     }
+
+    useEffect(() => {
+        setMeme({title: meme.title, author: user, bytes: file});
+    }, [file])
 
     return (
         <div className="container-md" style={{position: "relative", left: "5%",}}>

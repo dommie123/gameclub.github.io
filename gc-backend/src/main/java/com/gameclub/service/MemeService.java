@@ -1,5 +1,7 @@
 package com.gameclub.service;
 
+import java.nio.charset.StandardCharsets;
+import java.util.Base64;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +24,14 @@ public class MemeService {
 	private UserDao uDao;
 	
 	public Meme createMeme(Meme meme) {
+		String partSeparator = ",";
+		String data = meme.getByteStream().toString();
+		if (data.contains(partSeparator)) {
+		  String encodedImg = data.split(partSeparator)[1];
+		  byte[] decodedImg = Base64.getDecoder().decode(encodedImg.getBytes(StandardCharsets.UTF_8));
+		  meme.setByteStream(decodedImg);
+		}
+		
 		Meme m = mDao.save(meme);
 		return m;
 	}

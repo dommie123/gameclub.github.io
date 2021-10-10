@@ -1,12 +1,13 @@
 import {GET_ALL_GUIDES, GET_GUIDE_BY_ID, GET_GUIDE_BY_TITLE, GET_GUIDES_BY_AUTHOR, NEW_GUIDE} from './types';
 import {GameClubDB} from './axios-endpoints';
+import { showError } from '../utils/error-dialog';
 
 export const getGuides = () => {
     return function(dispatch) {
         let guides = GameClubDB.get("/guide/all").then(data => dispatch({
             type: GET_ALL_GUIDES,
             payload: data
-        })).catch(console.log("An error occurred! Panic!"));
+        })).catch(err => {showError(err.message)});
 
         return guides.data;
     }
@@ -17,7 +18,7 @@ export const getGuideById = (id) => {
         let guides = GameClubDB.get(`/guide/id/${id}`).then(data => dispatch({
             type: GET_GUIDE_BY_ID,
             payload: data
-        })).catch(console.log("An error occurred! Panic!"));
+        })).catch(err => {showError(err.message)});
 
         return guides.data;
     }
@@ -28,7 +29,7 @@ export const getGuidesByAuthor = (authId) => {
         let guides = GameClubDB.get(`/guide/author/${authId}`).then(data => dispatch({
             type: GET_GUIDES_BY_AUTHOR,
             payload: data
-        })).catch(console.log("An error occurred! Panic!"));
+        })).catch(err => {showError(err.message)});
 
         return guides.data;
     }
@@ -39,7 +40,7 @@ export const getGuide = (name) => {
         let guide = GameClubDB.get(`/guide/title/${name}`).then(data => dispatch({
             type: GET_GUIDE_BY_TITLE,
             payload: data
-        })).catch(console.log("Could not get the guide! Panic!"));
+        })).catch(err => {showError(err.message)});
         
         return guide.data;
     }
@@ -54,7 +55,7 @@ export const newGuide = (guide) => {
         }).then(data => dispatch({
             type: NEW_GUIDE, 
             payload: data
-        })).catch(console.log("Error creating a new guide! Panic!"));
+        })).catch(err => {showError(err.message)});
 
         return g.data;
     }

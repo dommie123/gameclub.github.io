@@ -1,15 +1,21 @@
-import { TOGGLE_ALERT } from "../actions/types";
+import { ADD_ALERT, REMOVE_ALERT } from "../actions/types";
 
 const initialState = {
-    alertClosed: false
-};
+    alert: null
+}
 
 export default function uiReducer(state=initialState, action) {
     switch (action.type) {
-        case TOGGLE_ALERT:
+
+        case ADD_ALERT:
         return {
             ...state,
-            alertClosed: !state.alertClosed
+            alert: action.payload
+        }
+        case REMOVE_ALERT: 
+        return {
+            ...state, 
+            alert: initialState.alert
         }
         default:
         return state;
