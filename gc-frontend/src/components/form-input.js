@@ -7,6 +7,7 @@ export default function FormInput(props) {
     let file = props.file;
 
     const handleChange = props.handleChange;
+    const handleSubmit = props.handleSubmit;
 
     if (type === "submit") {
         return (

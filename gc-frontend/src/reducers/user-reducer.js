@@ -49,7 +49,7 @@ export default function userReducer(state=initialState, action) {
         case UPDATE_ADMIN:
         return {
             ...state,
-            currentUser: action.currentUser,
+            currentUser: action.data.currentUser,
             isAdmin: true
         }
         default: 

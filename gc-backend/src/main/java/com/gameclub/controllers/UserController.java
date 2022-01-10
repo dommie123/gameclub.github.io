@@ -74,14 +74,18 @@ public class UserController {
 		return users;
 	}
 	
-	@PutMapping(value="/")
-	public ResponseEntity<User> updateUser(@RequestBody User u) {
+	@PutMapping(value="/id/{userId}")
+	public ResponseEntity<User> updateUser(@PathVariable("userId") int id, @RequestBody User updatedUser) {
 		try {
+			User u = uServ.getUserById(id);
+			u.setFirstName(updatedUser.getFirstName());
+			u.setLastName(updatedUser.getLastName());
+			u.setEmail(updatedUser.getEmail());
 			uServ.updateUserById(u.getId(), u);
 		} catch (UserNotFoundException e) {
 			throw new ResponseStatusException(HttpStatus.NOT_FOUND, e.getMessage());
 		}
-		return new ResponseEntity<>(u, HttpStatus.CREATED);
+		return new ResponseEntity<User>(updatedUser, HttpStatus.CREATED);
 	}
 	
 	@DeleteMapping(value="/id/{userId}")

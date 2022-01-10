@@ -37,20 +37,28 @@ export const registerAdmin = (admin) => {
     }
 }
 
-export const updateUser = (u) => {
+export const updateUser = (u, updatedUser=u) => {
+    Object.keys(updateUser).forEach(key => {
+        if (!updatedUser[key] || updatedUser[key] === '')
+            updatedUser[key] = u[key];
+    })
     return function(dispatch) {
-        let user = GameClubDB.put("/user/", {
+        let user = GameClubDB.put(`/user/id/${u.id}`, {
             id: u.id,
-            username: u.username,
-            password: u.password,
-            firstName: u.firstName,
-            lastName: u.lastName,
-            email: u.email
+            username: updatedUser.username,
+            //password: u.password,
+            firstName: updatedUser.firstName,
+            lastName: updatedUser.lastName,
+            email: updatedUser.email
+        }, {
+            headers: {
+                'Access-Control-Allow-Origin':'true'
+            }
         }).then(data => dispatch({
             type: UPDATE_USER,
             currentUser: data
         }));
-        console.log(user);
+        // console.log(user);
         return user.data;
     }
 }
