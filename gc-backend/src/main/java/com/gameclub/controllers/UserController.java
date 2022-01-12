@@ -20,7 +20,6 @@ import org.springframework.web.server.ResponseStatusException;
 import com.gameclub.exceptions.UserAlreadyExistsException;
 import com.gameclub.exceptions.UserNotFoundException;
 import com.gameclub.model.User;
-import com.gameclub.model.User;
 import com.gameclub.service.MemeService;
 import com.gameclub.service.UserService;
 

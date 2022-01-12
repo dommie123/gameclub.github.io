@@ -49,7 +49,7 @@ export default function GuideListContainer() {
 
     useEffect(() => {
         dispatch(getGuides());
-    });
+    }, []);
 
     if (guides) {
         return (
