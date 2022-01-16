@@ -19,8 +19,9 @@ export default function LogOut() {
 
     return (
         <div id="logout-message">
-            <h3>Thanks for checking in! See you again soon!</h3>
-            <Link to="/home" className="btn-secondary">Back to Home</Link>
+            <h3 style={{marginBottom: '5px'}}>Thanks for checking in! See you again soon!</h3>
+            <br />
+            <Link to="/home" id="btn-logout">Back to Home</Link>
         </div>
     )
 }

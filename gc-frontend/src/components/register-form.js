@@ -46,17 +46,19 @@ export default function RegisterForm() {
     }
 
     return (
-        <form onSubmit={setCurrentUser}>
-            <FormInput type="text" name="username" display="Username: " handleChange={handleChange} />
-            <FormInput type="text" name="firstName" display="First Name: " handleChange={handleChange} />
-            <FormInput type="text" name="lastName" display="Last Name: " handleChange={handleChange} />
-            <FormInput type="text" name="email" display="Email: " handleChange={handleChange} />
-            <FormInput type="password" name="password" display="Password: " handleChange={handleChange} />
-            <FormInput type="password" name="confirmPass" display="Confirm your Password: " handleChange={handleChange} />
-            <FormInput type="checkbox" name="agree" display="I agree to the terms and conditions of this site (as mentioned in Discord): " handleChange={handleChange} />
-            <FormInput type="submit" display="Register"/>
-            <br />
-            <p>Already have an account? <Link to="/login">Sign in</Link>!</p>
-        </form>
+        <div className="container-lg" id="login-container" style={{position: "relative", left: "4%",}}>
+            <form onSubmit={setCurrentUser}>
+                <FormInput type="text" name="username" display="Username: " handleChange={handleChange} />
+                <FormInput type="text" name="firstName" display="First Name: " handleChange={handleChange} />
+                <FormInput type="text" name="lastName" display="Last Name: " handleChange={handleChange} />
+                <FormInput type="text" name="email" display="Email: " handleChange={handleChange} />
+                <FormInput type="password" name="password" display="Password: " handleChange={handleChange} />
+                <FormInput type="password" name="confirmPass" display="Confirm your Password: " handleChange={handleChange} />
+                <FormInput type="checkbox" name="agree" display="I agree to the terms and conditions of this site (as mentioned in Discord): " handleChange={handleChange} />
+                <FormInput type="submit" display="Register"/>
+                <br />
+                <p>Already have an account? <Link to="/login">Sign in</Link>!</p>
+            </form>
+        </div>
     )
 }

@@ -79,11 +79,6 @@ header > h3 {
   font-size: 16pt;
 }
 
-/* .container-lg {
-  position: relative;
-  right: 8%;
-} */
-
 .form {
   text-align: center;
   margin-left: 2.3em;
@@ -161,6 +156,7 @@ form > p {
 
 .btn-secondary {
   text-decoration: none;
+  border-radius: 3px;
 }
 
 .add-button {
@@ -182,3 +178,19 @@ form > p {
   color: white;
 }
 
+#btn-logout {
+  background-color: green;
+  border: 1px solid aquamarine;
+  border-radius: 5px;
+  text-decoration: none;
+  color: white;
+  padding: 5px;
+  transition-duration: 0.5s;
+}
+
+#btn-logout:hover {
+  background-color: yellowgreen;
+  border: 1px solid green;
+  color: black;
+  padding: 5px;
+}
